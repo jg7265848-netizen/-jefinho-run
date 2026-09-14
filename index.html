@@ -750,7 +750,7 @@ async function registrarPedido(produto, valor, pagamento) {
 
         const { data, error } =
         await supabaseClient
-        .from("Pedidos")
+        .from("pedidos")
         .insert([pedido])
         .select();
 
