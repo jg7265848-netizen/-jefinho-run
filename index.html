@@ -12,6 +12,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -28,11 +29,15 @@ body {
     color: #111111;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header {
     background: #ffffff;
     border-bottom: 1px solid #e6e6e6;
-    height: 74px;
-    padding: 0 6%;
+    min-height: 74px;
+    padding: 15px 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,29 +59,61 @@ header {
 nav {
     display: flex;
     align-items: center;
+    gap: 25px;
 }
 
 nav a {
     color: #111111;
     text-decoration: none;
-    margin-left: 28px;
     font-size: 14px;
     font-weight: 600;
 }
 
+/* =========================
+   CARRINHO HEADER
+========================= */
+
+.cart-button {
+    background: #111111;
+    color: #ffffff;
+    border: none;
+    padding: 11px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cart-count {
+    background: #ffffff;
+    color: #111111;
+    border-radius: 50%;
+    padding: 2px 7px;
+    margin-left: 4px;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
     min-height: 520px;
+
     background:
         linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)),
         url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1600&q=85');
+
     background-size: cover;
     background-position: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
     padding: 30px;
+
     color: #ffffff;
 }
 
@@ -111,6 +148,10 @@ nav a {
     font-size: 14px;
     font-weight: 700;
 }
+
+/* =========================
+   PRODUTOS
+========================= */
 
 .container {
     max-width: 1200px;
@@ -152,6 +193,7 @@ nav a {
     background: #ffffff;
     border: 1px solid #e3e3e3;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .product-card img {
@@ -209,864 +251,10 @@ nav a {
     border: 1px solid #111111;
 }
 
-.pix-test {
-    background: #f5f5f5;
-    border: 1px solid #dddddd;
-    padding: 14px;
-    margin-top: 15px;
-    display: none;
-}
-
-.pix-test p {
-    font-size: 11px;
-    color: #666666;
-    margin-bottom: 8px;
-}
-
-.pix-code {
-    font-size: 9px;
-    word-break: break-all;
-    color: #333333;
-    line-height: 1.4;
-    margin-bottom: 10px;
-}
-
-.copy-btn {
-    width: 100%;
-    padding: 10px;
-    background: #111111;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.benefits {
-    background: #f6f6f6;
-    padding: 65px 25px;
-    margin-top: 90px;
-}
-
-.benefit-grid {
-    max-width: 1000px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 35px;
-    text-align: center;
-}
-
-.benefit {
-    text-align: center;
-}
-
-.benefit i {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.benefit h3 {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.benefit p {
-    font-size: 12px;
-    line-height: 1.5;
-    color: #777777;
-}
-
-.whatsapp-float {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    width: 56px;
-    height: 56px;
-    background: #111111;
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 25px;
-    z-index: 2000;
-}
-
-footer {
-    background: #111111;
-    color: #999999;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 80px;
-}
-
-footer .footer-logo {
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
-
-footer p {
-    font-size: 12px;
-}
-
-@media (max-width: 700px) {
-
-    header {
-        height: auto;
-        padding: 18px 20px;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav a {
-        margin: 0 8px;
-        font-size: 12px;
-    }
-
-    .hero {
-        min-height: 470px;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .container {
-        margin: 60px auto;
-    }
-
-    .section-header h2 {
-        font-size: 28px;
-    }
-
-    .product-card img {
-        height: 250px;
-    }
-
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        right: 17px;
-        bottom: 17px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-JEFINHO <span>RUN</span>
-</div>
-
-<nav>
-
-<a href="#">
-Início
-</a>
-
-<a href="#produtos">
-Produtos
-</a>
-
-<a
-href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
-target="_blank">
-
-Contato
-
-</a>
-
-</nav>
-
-</header>
-
-
-<section class="hero">
-
-<div class="hero-small">
-JEFINHO RUN
-</div>
-
-<h1>
-Supere seus limites.
-</h1>
-
-<p>
-Performance, estilo e conforto para acompanhar
-cada quilômetro da sua jornada.
-</p>
-
-<a href="#produtos" class="hero-btn">
-VER PRODUTOS
-</a>
-
-</section>
-
-
-<section class="container" id="produtos">
-
-<div class="section-header">
-
-<span>
-Nossa seleção
-</span>
-
-<h2>
-Produtos em destaque
-</h2>
-
-<p>
-Equipamentos escolhidos para quem leva a corrida a sério.
-</p>
-
-</div>
-
-
-<div class="product-grid">
-
-
-<!-- CAMISA -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
-alt="Camisa Dry-Fit Performance">
-
-<div class="product-info">
-
-<div class="product-category">
-Performance
-</div>
-
-<h3>
-Camisa Dry-Fit Performance
-</h3>
-
-<div class="price">
-R$ 99,90
-</div>
-
-<a
-href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
-target="_blank"
-class="btn-buy btn-black"
-onclick="iniciarCompra(event, this, 'Camisa Dry-Fit Performance', 99.90, 'InfinitePay')">
-
-💳 PAGAR COM INFINITEPAY
-
-</a>
-
-
-<a
-href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20Performance%20por%20R$%2099,90."
-target="_blank"
-class="btn-buy btn-white"
-onclick="iniciarCompra(event, this, 'Camisa Dry-Fit Performance', 99.90, 'WhatsApp')">
-
-COMPRAR VIA WHATSAPP
-
-</a>
-
-
-<button
-class="btn-buy btn-white"
-onclick="mostrarPix('pixCamisa'); iniciarPix('Camisa Dry-Fit Performance', 99.90, 'PIX')">
-
-PIX DE TESTE
-
-</button>
-
-
-<div id="pixCamisa" class="pix-test">
-
-<p>
-Código Pix de teste
-</p>
-
-<div class="pix-code" id="codigoCamisa">
-
-00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
-
-</div>
-
-<button
-class="copy-btn"
-onclick="copiarPix('codigoCamisa')">
-
-COPIAR PIX
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- TÊNIS -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
-alt="Tênis de Corrida">
-
-<div class="product-info">
-
-<div class="product-category">
-Running
-</div>
-
-<h3>
-Tênis de Corrida Pro
-</h3>
-
-<div class="price">
-R$ 349,90
-</div>
-
-
-<a
-href="#"
-target="_blank"
-class="btn-buy btn-black"
-onclick="iniciarCompra(event, this, 'Tênis de Corrida Pro', 349.90, 'InfinitePay');">
-
-💳 PAGAR COM INFINITEPAY
-
-</a>
-
-
-<a
-href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro%20por%20R$%20349,90."
-target="_blank"
-class="btn-buy btn-white"
-onclick="iniciarCompra(event, this, 'Tênis de Corrida Pro', 349.90, 'WhatsApp')">
-
-COMPRAR VIA WHATSAPP
-
-</a>
-
-
-<button
-class="btn-buy btn-white"
-onclick="mostrarPix('pixTenis'); iniciarPix('Tênis de Corrida Pro', 349.90, 'PIX')">
-
-PIX DE TESTE
-
-</button>
-
-
-<div id="pixTenis" class="pix-test">
-
-<p>
-Código Pix de teste
-</p>
-
-<div class="pix-code" id="codigoTenis">
-
-00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
-
-</div>
-
-<button
-class="copy-btn"
-onclick="copiarPix('codigoTenis')">
-
-COPIAR PIX
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- GARRAFA -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
-alt="Garrafa Térmica Esportiva">
-
-<div class="product-info">
-
-<div class="product-category">
-Acessórios
-</div>
-
-<h3>
-Garrafa Térmica Esportiva
-</h3>
-
-<div class="price">
-R$ 59,90
-</div>
-
-
-<a
-href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica%20Esportiva%20por%20R$%2059,90."
-target="_blank"
-class="btn-buy btn-black"
-onclick="iniciarCompra(event, this, 'Garrafa Térmica Esportiva', 59.90, 'WhatsApp')">
-
-COMPRAR VIA WHATSAPP
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="benefits">
-
-<div class="benefit-grid">
-
-
-<div class="benefit">
-
-<i class="fa-solid fa-bolt"></i>
-
-<h3>
-Performance
-</h3>
-
-<p>
-Produtos pensados para acompanhar seus treinos.
-</p>
-
-</div>
-
-
-<div class="benefit">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-<h3>
-Compra segura
-</h3>
-
-<p>
-Pagamento realizado através da InfinitePay.
-</p>
-
-</div>
-
-
-<div class="benefit">
-
-<i class="fa-solid fa-headset"></i>
-
-<h3>
-Atendimento
-</h3>
-
-<p>
-Fale diretamente conosco pelo WhatsApp.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<a
-href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
-class="whatsapp-float"
-target="_blank">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
-
-<footer>
-
-<div class="footer-logo">
-JEFINHO RUN
-</div>
-
-<p>
-© 2026 Jefinho Run. Todos os direitos reservados.
-</p>
-
-</footer>
-
-
-<script>
-
-/* =========================
-   SUPABASE
-========================= */
-
-const SUPABASE_URL =
-"https://xlqgxzgblawjjabyraki.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_WUocoVHVarxg6EPmLRtD0g_egOqFNog";
-
-const supabaseClient =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-
-/* =========================
-   GERAR NÚMERO DO PEDIDO
-========================= */
-
-function gerarNumeroPedido() {
-
-    const agora = new Date();
-
-    const numero =
-        agora.getFullYear().toString() +
-        (agora.getMonth() + 1).toString().padStart(2, "0") +
-        agora.getDate().toString().padStart(2, "0") +
-        agora.getHours().toString().padStart(2, "0") +
-        agora.getMinutes().toString().padStart(2, "0") +
-        agora.getSeconds().toString().padStart(2, "0");
-
-    return "JF-" + numero;
-}
-
-
-/* =========================
-   PEDIR DADOS DO CLIENTE
-========================= */
-
-function pedirDadosCliente() {
-
-    const nome = prompt(
-        "👤 Qual é o seu nome?"
-    );
-
-    if (!nome || nome.trim() === "") {
-
-        alert(
-            "⚠️ Digite seu nome para continuar."
-        );
-
-        return null;
-    }
-
-
-    const whatsapp = prompt(
-        "📱 Qual é o seu WhatsApp?\n\nExemplo: 31999999999"
-    );
-
-
-    if (!whatsapp || whatsapp.trim() === "") {
-
-        alert(
-            "⚠️ Digite seu WhatsApp para continuar."
-        );
-
-        return null;
-    }
-
-
-    return {
-
-        nome: nome.trim(),
-
-        whatsapp: whatsapp.trim()
-
-    };
-}
-
-
-/* =========================
-   REGISTRAR PEDIDO
-========================= */
-
-async function registrarPedido(
-    produto,
-    valor,
-    pagamento,
-    cliente
-) {
-
-    alert(
-        "🔄 Registrando pedido..."
-    );
-
-
-    const pedido = {
-
-        numero_pedido: gerarNumeroPedido(),
-
-        nome_cliente: cliente.nome,
-
-        whatsapp: cliente.whatsapp,
-
-        produtos: produto,
-
-        valor_total: valor,
-
-        status: "pendente",
-
-        criado_em: new Date().toISOString()
-
-    };
-
-
-    try {
-
-        /*
-        IMPORTANTE:
-        Não usamos .select() aqui.
-        O cliente só precisa INSERIR o pedido.
-        */
-
-        const { error } =
-        await supabaseClient
-        .from("pedidos")
-        .insert([pedido]);
-
-
-        if (error) {
-
-            console.error(
-                "ERRO SUPABASE:",
-                error
-            );
-
-
-            alert(
-                "❌ ERRO NO SUPABASE\n\n" +
-                "Mensagem:\n" +
-                error.message +
-                "\n\nCódigo:\n" +
-                error.code +
-                "\n\nDetalhes:\n" +
-                (error.details || "nenhum")
-            );
-
-
-            return false;
-        }
-
-
-        console.log(
-            "PEDIDO REGISTRADO:",
-            pedido
-        );
-
-
-        alert(
-            "✅ PEDIDO REGISTRADO!\n\n" +
-            "Número: " +
-            pedido.numero_pedido +
-            "\n\nCliente: " +
-            cliente.nome +
-            "\n\nWhatsApp: " +
-            cliente.whatsapp +
-            "\n\nProduto: " +
-            produto +
-            "\n\nValor: R$ " +
-            valor.toFixed(2) +
-            "\n\nPagamento: " +
-            pagamento
-        );
-
-
-        return true;
-
-
-    } catch (erro) {
-
-        console.error(
-            "ERRO:",
-            erro
-        );
-
-
-        alert(
-            "❌ ERRO INESPERADO\n\n" +
-            erro.message
-        );
-
-
-        return false;
-    }
-}
-
-
-/* =========================
-   COMPRA
-========================= */
-
-async function iniciarCompra(
-    event,
-    elemento,
-    produto,
-    valor,
-    pagamento
-) {
-
-    event.preventDefault();
-
-
-    const cliente =
-        pedirDadosCliente();
-
-
-    if (!cliente) {
-
-        return false;
-
-    }
-
-
-    const sucesso =
-        await registrarPedido(
-            produto,
-            valor,
-            pagamento,
-            cliente
-        );
-
-
-    if (!sucesso) {
-
-        return false;
-
-    }
-
-
-    const link =
-        elemento.href;
-
-
-    if (
-        link &&
-        link !== "#" &&
-        link !== window.location.href + "#"
-    ) {
-
-        window.open(
-            link,
-            "_blank"
-        );
-
-    }
-
-
-    return false;
-}
-
-
 /* =========================
    PIX
 ========================= */
 
-async function iniciarPix(
-    produto,
-    valor,
-    pagamento
-) {
-
-    const cliente =
-        pedirDadosCliente();
-
-
-    if (!cliente) {
-
-        return;
-
-    }
-
-
-    await registrarPedido(
-        produto,
-        valor,
-        pagamento,
-        cliente
-    );
-}
-
-
-/* =========================
-   MOSTRAR PIX
-========================= */
-
-function mostrarPix(id) {
-
-    const caixa =
-        document.getElementById(id);
-
-
-    if (
-        caixa.style.display === "block"
-    ) {
-
-        caixa.style.display = "none";
-
-    } else {
-
-        caixa.style.display = "block";
-
-    }
-}
-
-
-/* =========================
-   COPIAR PIX
-========================= */
-
-function copiarPix(id) {
-
-    const codigo =
-        document.getElementById(id).innerText;
-
-
-    navigator.clipboard
-    .writeText(codigo)
-
-    .then(function() {
-
-        alert(
-            "Código Pix copiado com sucesso!"
-        );
-
-    })
-
-    .catch(function() {
-
-        alert(
-            "Não foi possível copiar automaticamente."
-        );
-
-    });
-
-}
-
-</script>
-
-</body>
-</html>
+.pix-test {
+    background: #f5f5f5;
+    border: 1px
