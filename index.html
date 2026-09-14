@@ -9,6 +9,9 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
         * {
             margin: 0;
@@ -25,10 +28,6 @@
             background: #ffffff;
             color: #111111;
         }
-
-        /* =========================
-           CABEÇALHO
-        ========================= */
 
         header {
             background: #ffffff;
@@ -71,10 +70,6 @@
         nav a:hover {
             color: #777777;
         }
-
-        /* =========================
-           BANNER
-        ========================= */
 
         .hero {
             min-height: 520px;
@@ -137,10 +132,6 @@
         .hero-btn:hover {
             background: #dddddd;
         }
-
-        /* =========================
-           PRODUTOS
-        ========================= */
 
         .container {
             max-width: 1200px;
@@ -223,10 +214,6 @@
             margin-bottom: 20px;
         }
 
-        /* =========================
-           BOTÕES
-        ========================= */
-
         .btn-buy {
             display: block;
             width: 100%;
@@ -261,10 +248,6 @@
             background: #111111;
             color: #ffffff;
         }
-
-        /* =========================
-           PIX
-        ========================= */
 
         .pix-test {
             background: #f5f5f5;
@@ -303,10 +286,6 @@
             background: #333333;
         }
 
-        /* =========================
-           BENEFÍCIOS
-        ========================= */
-
         .benefits {
             background: #f6f6f6;
             padding: 65px 25px;
@@ -342,10 +321,6 @@
             color: #777777;
         }
 
-        /* =========================
-           WHATSAPP
-        ========================= */
-
         .whatsapp-float {
             position: fixed;
             right: 22px;
@@ -379,10 +354,6 @@
             transform: scale(1.08);
         }
 
-        /* =========================
-           RODAPÉ
-        ========================= */
-
         footer {
             background: #111111;
             color: #999999;
@@ -401,10 +372,6 @@
         footer p {
             font-size: 12px;
         }
-
-        /* =========================
-           CELULAR
-        ========================= */
 
         @media (max-width: 700px) {
 
@@ -456,409 +423,482 @@
 
 <body>
 
-    <!-- =========================
-         CABEÇALHO
-    ========================= -->
+<header>
 
-    <header>
+    <div class="logo">
+        JEFINHO <span>RUN</span>
+    </div>
 
-        <div class="logo">
-            JEFINHO <span>RUN</span>
-        </div>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#produtos">Produtos</a>
 
-        <nav>
-            <a href="#">Início</a>
-            <a href="#produtos">Produtos</a>
+        <a
+            href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+            target="_blank">
+            Contato
+        </a>
+    </nav>
 
-            <a
-                href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
-                target="_blank">
-                Contato
-            </a>
-        </nav>
-
-    </header>
+</header>
 
 
-    <!-- =========================
-         BANNER
-    ========================= -->
+<section class="hero">
 
-    <section class="hero">
+    <div class="hero-small">
+        JEFINHO RUN
+    </div>
 
-        <div class="hero-small">
-            JEFINHO RUN
-        </div>
+    <h1>
+        Supere seus limites.
+    </h1>
 
-        <h1>
-            Supere seus limites.
-        </h1>
+    <p>
+        Performance, estilo e conforto para acompanhar
+        cada quilômetro da sua jornada.
+    </p>
+
+    <a href="#produtos" class="hero-btn">
+        VER PRODUTOS
+    </a>
+
+</section>
+
+
+<section class="container" id="produtos">
+
+    <div class="section-header">
+
+        <span>
+            Nossa seleção
+        </span>
+
+        <h2>
+            Produtos em destaque
+        </h2>
 
         <p>
-            Performance, estilo e conforto para acompanhar
-            cada quilômetro da sua jornada.
+            Equipamentos escolhidos para quem leva a corrida a sério.
         </p>
 
-        <a href="#produtos" class="hero-btn">
-            VER PRODUTOS
-        </a>
-
-    </section>
+    </div>
 
 
-    <!-- =========================
-         PRODUTOS
-    ========================= -->
+    <div class="product-grid">
 
-    <section class="container" id="produtos">
 
-        <div class="section-header">
+        <!-- CAMISA -->
 
-            <span>
-                Nossa seleção
-            </span>
+        <div class="product-card">
 
-            <h2>
-                Produtos em destaque
-            </h2>
+            <img
+                src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
+                alt="Camisa Dry-Fit Performance">
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Performance
+                </div>
+
+                <h3>
+                    Camisa Dry-Fit Performance
+                </h3>
+
+                <div class="price">
+                    R$ 99,90
+                </div>
+
+                <a
+                    href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
+                    target="_blank"
+                    class="btn-buy btn-black"
+                    onclick="registrarPedido('Camisa Dry-Fit Performance', 99.90, 'InfinitePay')">
+
+                    💳 PAGAR COM INFINITEPAY
+
+                </a>
+
+                <a
+                    href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20Performance%20por%20R$%2099,90."
+                    target="_blank"
+                    class="btn-buy btn-white"
+                    onclick="registrarPedido('Camisa Dry-Fit Performance', 99.90, 'WhatsApp')">
+
+                    COMPRAR VIA WHATSAPP
+
+                </a>
+
+                <button
+                    class="btn-buy btn-white"
+                    onclick="mostrarPix('pixCamisa'); registrarPedido('Camisa Dry-Fit Performance', 99.90, 'PIX')">
+
+                    PIX DE TESTE
+
+                </button>
+
+                <div id="pixCamisa" class="pix-test">
+
+                    <p>
+                        Código Pix de teste — R$ 309,40
+                    </p>
+
+                    <div class="pix-code" id="codigoCamisa">
+                        00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
+                    </div>
+
+                    <button
+                        class="copy-btn"
+                        onclick="copiarPix('codigoCamisa')">
+
+                        COPIAR PIX
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- TÊNIS -->
+
+        <div class="product-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+                alt="Tênis de Corrida">
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Running
+                </div>
+
+                <h3>
+                    Tênis de Corrida Pro
+                </h3>
+
+                <div class="price">
+                    R$ 349,90
+                </div>
+
+                <a
+                    href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
+                    target="_blank"
+                    class="btn-buy btn-black"
+                    onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'InfinitePay')">
+
+                    💳 PAGAR COM INFINITEPAY
+
+                </a>
+
+                <a
+                    href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro."
+                    target="_blank"
+                    class="btn-buy btn-white"
+                    onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'WhatsApp')">
+
+                    COMPRAR VIA WHATSAPP
+
+                </a>
+
+                <button
+                    class="btn-buy btn-white"
+                    onclick="mostrarPix('pixTenis'); registrarPedido('Tênis de Corrida Pro', 349.90, 'PIX')">
+
+                    PIX DE TESTE
+
+                </button>
+
+                <div id="pixTenis" class="pix-test">
+
+                    <p>
+                        Código Pix de teste — R$ 309,40
+                    </p>
+
+                    <div class="pix-code" id="codigoTenis">
+                        00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
+                    </div>
+
+                    <button
+                        class="copy-btn"
+                        onclick="copiarPix('codigoTenis')">
+
+                        COPIAR PIX
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- GARRAFA -->
+
+        <div class="product-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
+                alt="Garrafa Térmica Esportiva">
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Acessórios
+                </div>
+
+                <h3>
+                    Garrafa Térmica Esportiva
+                </h3>
+
+                <div class="price">
+                    R$ 59,90
+                </div>
+
+                <a
+                    href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica%20Esportiva%20por%20R$%2059,90."
+                    target="_blank"
+                    class="btn-buy btn-black"
+                    onclick="registrarPedido('Garrafa Térmica Esportiva', 59.90, 'WhatsApp')">
+
+                    COMPRAR VIA WHATSAPP
+
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="benefits">
+
+    <div class="benefit-grid">
+
+        <div class="benefit">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>
+                Performance
+            </h3>
 
             <p>
-                Equipamentos escolhidos para quem leva a corrida a sério.
+                Produtos pensados para acompanhar seus treinos.
             </p>
 
         </div>
 
 
-        <div class="product-grid">
+        <div class="benefit">
 
+            <i class="fa-solid fa-shield-halved"></i>
 
-            <!-- =========================
-                 CAMISA
-            ========================= -->
+            <h3>
+                Compra segura
+            </h3>
 
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
-                    alt="Camisa Dry-Fit Performance">
-
-                <div class="product-info">
-
-                    <div class="product-category">
-                        Performance
-                    </div>
-
-                    <h3>
-                        Camisa Dry-Fit Performance
-                    </h3>
-
-                    <div class="price">
-                        R$ 99,90
-                    </div>
-
-                    <a
-                        href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
-                        target="_blank"
-                        class="btn-buy btn-black">
-
-                        💳 PAGAR COM INFINITEPAY
-
-                    </a>
-
-                    <a
-                        href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20Performance%20por%20R$%2099,90."
-                        target="_blank"
-                        class="btn-buy btn-white">
-
-                        COMPRAR VIA WHATSAPP
-
-                    </a>
-
-                    <button
-                        class="btn-buy btn-white"
-                        onclick="mostrarPix('pixCamisa')">
-
-                        PIX DE TESTE
-
-                    </button>
-
-                    <div id="pixCamisa" class="pix-test">
-
-                        <p>
-                            Código Pix de teste — R$ 309,40
-                        </p>
-
-                        <div class="pix-code" id="codigoCamisa">
-                            00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
-                        </div>
-
-                        <button
-                            class="copy-btn"
-                            onclick="copiarPix('codigoCamisa')">
-
-                            COPIAR PIX
-
-                        </button>
-
-                    </div>
-
-                </div>
-            </div>
-
-
-            <!-- =========================
-                 TÊNIS
-            ========================= -->
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
-                    alt="Tênis de Corrida">
-
-                <div class="product-info">
-
-                    <div class="product-category">
-                        Running
-                    </div>
-
-                    <h3>
-                        Tênis de Corrida Pro
-                    </h3>
-
-                    <div class="price">
-                        R$ 349,90
-                    </div>
-
-                    <a
-                        href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
-                        target="_blank"
-                        class="btn-buy btn-black">
-
-                        💳 PAGAR COM INFINITEPAY
-
-                    </a>
-
-                    <a
-                        href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro."
-                        target="_blank"
-                        class="btn-buy btn-white">
-
-                        COMPRAR VIA WHATSAPP
-
-                    </a>
-
-                    <button
-                        class="btn-buy btn-white"
-                        onclick="mostrarPix('pixTenis')">
-
-                        PIX DE TESTE
-
-                    </button>
-
-                    <div id="pixTenis" class="pix-test">
-
-                        <p>
-                            Código Pix de teste — R$ 309,40
-                        </p>
-
-                        <div class="pix-code" id="codigoTenis">
-                            00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
-                        </div>
-
-                        <button
-                            class="copy-btn"
-                            onclick="copiarPix('codigoTenis')">
-
-                            COPIAR PIX
-
-                        </button>
-
-                    </div>
-
-                </div>
-            </div>
-
-
-            <!-- =========================
-                 GARRAFA
-            ========================= -->
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
-                    alt="Garrafa Térmica Esportiva">
-
-                <div class="product-info">
-
-                    <div class="product-category">
-                        Acessórios
-                    </div>
-
-                    <h3>
-                        Garrafa Térmica Esportiva
-                    </h3>
-
-                    <div class="price">
-                        R$ 59,90
-                    </div>
-
-                    <a
-                        href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica%20Esportiva%20por%20R$%2059,90."
-                        target="_blank"
-                        class="btn-buy btn-black">
-
-                        COMPRAR VIA WHATSAPP
-
-                    </a>
-
-                </div>
-            </div>
+            <p>
+                Pagamento realizado através da InfinitePay.
+            </p>
 
         </div>
 
-    </section>
 
+        <div class="benefit">
 
-    <!-- =========================
-         BENEFÍCIOS
-    ========================= -->
+            <i class="fa-solid fa-headset"></i>
 
-    <section class="benefits">
+            <h3>
+                Atendimento
+            </h3>
 
-        <div class="benefit-grid">
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-bolt"></i>
-
-                <h3>
-                    Performance
-                </h3>
-
-                <p>
-                    Produtos pensados para acompanhar seus treinos.
-                </p>
-
-            </div>
-
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-                <h3>
-                    Compra segura
-                </h3>
-
-                <p>
-                    Pagamento realizado através da InfinitePay.
-                </p>
-
-            </div>
-
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-headset"></i>
-
-                <h3>
-                    Atendimento
-                </h3>
-
-                <p>
-                    Fale diretamente conosco pelo WhatsApp.
-                </p>
-
-            </div>
+            <p>
+                Fale diretamente conosco pelo WhatsApp.
+            </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =========================
-         WHATSAPP
-    ========================= -->
+<a
+    href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+    class="whatsapp-float"
+    target="_blank"
+    title="Fale conosco">
 
-    <a
-        href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
-        class="whatsapp-float"
-        target="_blank"
-        title="Fale conosco">
+    <i class="fa-brands fa-whatsapp"></i>
 
-        <i class="fa-brands fa-whatsapp"></i>
-
-    </a>
+</a>
 
 
-    <!-- =========================
-         RODAPÉ
-    ========================= -->
+<footer>
 
-    <footer>
+    <div class="footer-logo">
+        JEFINHO RUN
+    </div>
 
-        <div class="footer-logo">
-            JEFINHO RUN
-        </div>
+    <p>
+        © 2026 Jefinho Run. Todos os direitos reservados.
+    </p>
 
-        <p>
-            © 2026 Jefinho Run. Todos os direitos reservados.
-        </p>
-
-    </footer>
+</footer>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
+<script>
 
-    <script>
+    /* =========================
+       CONFIGURAÇÃO SUPABASE
+    ========================= */
 
-        function mostrarPix(id) {
+    const SUPABASE_URL =
+        "https://xlqgxzgblawjjabyraki.supabase.co";
 
-            const caixa = document.getElementById(id);
+    const SUPABASE_KEY =
+        "sb_publishable_WUocoVHVarxg6EPmLRtD0g_egOqFNog";
 
-            if (caixa.style.display === "block") {
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
-                caixa.style.display = "none";
 
-            } else {
+    /* =========================
+       REGISTRAR PEDIDO
+    ========================= */
 
-                caixa.style.display = "block";
+    async function registrarPedido(
+        produto,
+        valor,
+        pagamento
+    ) {
+
+        try {
+
+            const pedido = {
+
+                cliente_nome: "Cliente do site",
+
+                cliente_telefone: "",
+
+                cliente_email: "",
+
+                endereco: "",
+
+                produtos: [
+                    {
+                        nome: produto,
+                        quantidade: 1,
+                        valor: valor
+                    }
+                ],
+
+                valor_total: valor,
+
+                status: "pendente",
+
+                forma_pagamento: pagamento,
+
+                observacao: "Pedido iniciado pelo site Jefinho Run.",
+
+                criado_em: new Date().toISOString()
+
+            };
+
+
+            const { data, error } =
+                await supabaseClient
+                    .from("Pedidos")
+                    .insert([pedido])
+                    .select();
+
+
+            if (error) {
+
+                console.error(
+                    "Erro ao registrar pedido:",
+                    error
+                );
+
+                return;
 
             }
 
-        }
+
+            console.log(
+                "Pedido registrado:",
+                data
+            );
 
 
-        function copiarPix(id) {
+        } catch (erro) {
 
-            const codigo =
-                document.getElementById(id).innerText;
-
-            navigator.clipboard.writeText(codigo)
-
-                .then(function() {
-
-                    alert(
-                        "Código Pix copiado com sucesso!"
-                    );
-
-                })
-
-                .catch(function() {
-
-                    alert(
-                        "Não foi possível copiar automaticamente. Selecione e copie o código."
-                    );
-
-                });
+            console.error(
+                "Erro inesperado:",
+                erro
+            );
 
         }
 
-    </script>
+    }
+
+
+    /* =========================
+       PIX
+    ========================= */
+
+    function mostrarPix(id) {
+
+        const caixa =
+            document.getElementById(id);
+
+        if (caixa.style.display === "block") {
+
+            caixa.style.display = "none";
+
+        } else {
+
+            caixa.style.display = "block";
+
+        }
+
+    }
+
+
+    function copiarPix(id) {
+
+        const codigo =
+            document.getElementById(id).innerText;
+
+        navigator.clipboard.writeText(codigo)
+
+            .then(function() {
+
+                alert(
+                    "Código Pix copiado com sucesso!"
+                );
+
+            })
+
+            .catch(function() {
+
+                alert(
+                    "Não foi possível copiar automaticamente. Selecione e copie o código."
+                );
+
+            });
+
+    }
+
+</script>
 
 </body>
 </html>
