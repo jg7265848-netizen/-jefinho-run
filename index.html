@@ -3,348 +3,862 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jefinho Run - Loja de Corrida</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Jefinho Run | Performance & Running</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background: #ffffff;
+            color: #111111;
         }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
 
         header {
-            background-color: #111;
-            color: #fff;
-            padding: 20px 5%;
+            background: #ffffff;
+            border-bottom: 1px solid #e6e6e6;
+            height: 74px;
+            padding: 0 6%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
             letter-spacing: 1px;
-            color: #00ff88;
+            color: #111111;
         }
 
-        header nav a {
-            color: #fff;
+        .logo span {
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #111111;
             text-decoration: none;
-            margin-left: 20px;
-            font-size: 15px;
-            transition: color 0.3s;
+            margin-left: 28px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        header nav a:hover {
-            color: #00ff88;
+        nav a:hover {
+            color: #777777;
         }
+
+        /* =========================
+           BANNER
+        ========================= */
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-            url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1200&q=80');
+            min-height: 520px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.60),
+                    rgba(0,0,0,0.60)
+                ),
+                url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1600&q=85');
+
             background-size: cover;
             background-position: center;
-            height: 400px;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
             text-align: center;
-            color: #fff;
-            padding: 0 20px;
+            padding: 30px;
+
+            color: #ffffff;
+        }
+
+        .hero-small {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            color: #dddddd;
         }
 
         .hero h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 18px;
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            max-width: 600px;
+            max-width: 620px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #eeeeee;
+            margin-bottom: 32px;
         }
 
-        .btn {
-            background-color: #00ff88;
-            color: #111;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
+        .hero-btn {
+            background: #ffffff;
+            color: #111111;
+            padding: 15px 36px;
+            border-radius: 3px;
             text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background-color: #00cc6a;
+        .hero-btn:hover {
+            background: #dddddd;
         }
+
+        /* =========================
+           PRODUTOS
+        ========================= */
 
         .container {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 80px auto;
+            padding: 0 25px;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #222;
+            margin-bottom: 45px;
+        }
+
+        .section-header span {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #777777;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 34px;
+            margin-top: 12px;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            margin-top: 10px;
+            color: #777777;
+            font-size: 14px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns:
+                repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
         }
 
         .product-card {
-            background: #fff;
-            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e3e3e3;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: 0.3s;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
         }
 
         .product-card img {
             width: 100%;
-            height: 200px;
+            height: 290px;
             object-fit: cover;
+            display: block;
         }
 
         .product-info {
-            padding: 20px;
+            padding: 24px;
+        }
+
+        .product-category {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #888888;
+            text-transform: uppercase;
+            margin-bottom: 9px;
         }
 
         .product-info h3 {
             font-size: 18px;
-            margin-bottom: 10px;
-            color: #333;
+            margin-bottom: 13px;
+            font-weight: 700;
         }
 
-        .product-info .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #00a859;
-            margin-bottom: 15px;
+        .price {
+            font-size: 21px;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 20px;
         }
 
-        .product-info .btn-buy {
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .btn-buy {
             display: block;
-            text-align: center;
-            background-color: #111;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            margin-bottom: 8px;
-            cursor: pointer;
-            border: none;
             width: 100%;
-            font-size: 15px;
+            padding: 14px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 3px;
+            margin-bottom: 9px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .product-info .btn-buy:hover {
-            background-color: #00ff88;
-            color: #111;
+        .btn-black {
+            background: #111111;
+            color: #ffffff;
+            border: 1px solid #111111;
         }
 
-        .product-info .btn-pix {
-            background-color: #00a859;
+        .btn-black:hover {
+            background: #333333;
         }
 
-        .product-info .btn-pix:hover {
-            background-color: #008f4c;
-            color: #fff;
+        .btn-white {
+            background: #ffffff;
+            color: #111111;
+            border: 1px solid #111111;
         }
+
+        .btn-white:hover {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        /* =========================
+           PIX
+        ========================= */
+
+        .pix-test {
+            background: #f5f5f5;
+            border: 1px solid #dddddd;
+            padding: 14px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .pix-test p {
+            font-size: 11px;
+            color: #666666;
+            margin-bottom: 8px;
+        }
+
+        .pix-code {
+            font-size: 9px;
+            word-break: break-all;
+            color: #333333;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .copy-btn {
+            width: 100%;
+            padding: 10px;
+            background: #111111;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .copy-btn:hover {
+            background: #333333;
+        }
+
+        /* =========================
+           BENEFÍCIOS
+        ========================= */
+
+        .benefits {
+            background: #f6f6f6;
+            padding: 65px 25px;
+            margin-top: 90px;
+        }
+
+        .benefit-grid {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 35px;
+            text-align: center;
+        }
+
+        .benefit i {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #111111;
+        }
+
+        .benefit h3 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .benefit p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #777777;
+        }
+
+        /* =========================
+           WHATSAPP
+        ========================= */
 
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
+            right: 22px;
+            bottom: 22px;
+
+            width: 56px;
+            height: 56px;
+
+            background: #111111;
+            color: #ffffff;
+
             border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
+
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+
             text-decoration: none;
-            transition: transform 0.3s, background-color 0.3s;
+            font-size: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.25);
+
+            z-index: 2000;
+
+            transition: 0.3s;
         }
 
         .whatsapp-float:hover {
-            background-color: #20ba5a;
-            transform: scale(1.1);
+            background: #333333;
+            transform: scale(1.08);
         }
 
+        /* =========================
+           RODAPÉ
+        ========================= */
+
         footer {
-            background-color: #111;
-            color: #aaa;
+            background: #111111;
+            color: #999999;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-            font-size: 14px;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        footer .footer-logo {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 12px;
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                height: auto;
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 470px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .container {
+                margin: 60px auto;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .product-card img {
+                height: 250px;
+            }
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                right: 17px;
+                bottom: 17px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
+
     <header>
-        <div class="logo">⚡ Jefinho Run</div>
+
+        <div class="logo">
+            JEFINHO <span>RUN</span>
+        </div>
 
         <nav>
             <a href="#">Início</a>
             <a href="#produtos">Produtos</a>
-            <a href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20suporte." target="_blank">
+
+            <a
+                href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+                target="_blank">
                 Contato
             </a>
         </nav>
+
     </header>
 
-    <!-- Banner -->
-    <div class="hero">
-        <h1>Supere seus limites</h1>
+
+    <!-- =========================
+         BANNER
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-small">
+            JEFINHO RUN
+        </div>
+
+        <h1>
+            Supere seus limites.
+        </h1>
 
         <p>
-            Os melhores equipamentos, roupas e acessórios para acompanhar você em cada quilômetro.
+            Performance, estilo e conforto para acompanhar
+            cada quilômetro da sua jornada.
         </p>
 
-        <a href="#produtos" class="btn">Ver Produtos</a>
-    </div>
+        <a href="#produtos" class="hero-btn">
+            VER PRODUTOS
+        </a>
 
-    <!-- Vitrine -->
-    <div class="container" id="produtos">
+    </section>
 
-        <h2 class="section-title">Nossos Destaques</h2>
+
+    <!-- =========================
+         PRODUTOS
+    ========================= -->
+
+    <section class="container" id="produtos">
+
+        <div class="section-header">
+
+            <span>
+                Nossa seleção
+            </span>
+
+            <h2>
+                Produtos em destaque
+            </h2>
+
+            <p>
+                Equipamentos escolhidos para quem leva a corrida a sério.
+            </p>
+
+        </div>
+
 
         <div class="product-grid">
 
-            <!-- Produto 1 -->
+
+            <!-- =========================
+                 CAMISA
+            ========================= -->
+
             <div class="product-card">
 
-                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=500&q=80"
-                     alt="Camisa Dry-Fit">
+                <img
+                    src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
+                    alt="Camisa Dry-Fit Performance">
 
                 <div class="product-info">
 
-                    <h3>Camisa Dry-Fit Performance</h3>
+                    <div class="product-category">
+                        Performance
+                    </div>
+
+                    <h3>
+                        Camisa Dry-Fit Performance
+                    </h3>
 
                     <div class="price">
                         R$ 99,90
                     </div>
 
-                    <a href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20(R$%2099,90)."
-                       target="_blank"
-                       class="btn-buy">
-                        Comprar via WhatsApp
+                    <a
+                        href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
+                        target="_blank"
+                        class="btn-buy btn-black">
+
+                        💳 PAGAR COM INFINITEPAY
+
                     </a>
 
-                    <a href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
-                       target="_blank"
-                       class="btn-buy btn-pix">
-                        💳 Pagar agora — R$ 99,90
+                    <a
+                        href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20Performance%20por%20R$%2099,90."
+                        target="_blank"
+                        class="btn-buy btn-white">
+
+                        COMPRAR VIA WHATSAPP
+
                     </a>
+
+                    <button
+                        class="btn-buy btn-white"
+                        onclick="mostrarPix('pixCamisa')">
+
+                        PIX DE TESTE
+
+                    </button>
+
+                    <div id="pixCamisa" class="pix-test">
+
+                        <p>
+                            Código Pix de teste — R$ 309,40
+                        </p>
+
+                        <div class="pix-code" id="codigoCamisa">
+                            00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
+                        </div>
+
+                        <button
+                            class="copy-btn"
+                            onclick="copiarPix('codigoCamisa')">
+
+                            COPIAR PIX
+
+                        </button>
+
+                    </div>
 
                 </div>
             </div>
 
-            <!-- Produto 2 -->
+
+            <!-- =========================
+                 TÊNIS
+            ========================= -->
+
             <div class="product-card">
 
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80"
-                     alt="Tênis de Corrida">
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+                    alt="Tênis de Corrida">
 
                 <div class="product-info">
 
-                    <h3>Tênis de Corrida Pro</h3>
+                    <div class="product-category">
+                        Running
+                    </div>
+
+                    <h3>
+                        Tênis de Corrida Pro
+                    </h3>
 
                     <div class="price">
                         R$ 349,90
                     </div>
 
-                    <a href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro."
-                       target="_blank"
-                       class="btn-buy">
-                        Comprar via WhatsApp
+                    <a
+                        href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
+                        target="_blank"
+                        class="btn-buy btn-black">
+
+                        💳 PAGAR COM INFINITEPAY
+
                     </a>
+
+                    <a
+                        href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro."
+                        target="_blank"
+                        class="btn-buy btn-white">
+
+                        COMPRAR VIA WHATSAPP
+
+                    </a>
+
+                    <button
+                        class="btn-buy btn-white"
+                        onclick="mostrarPix('pixTenis')">
+
+                        PIX DE TESTE
+
+                    </button>
+
+                    <div id="pixTenis" class="pix-test">
+
+                        <p>
+                            Código Pix de teste — R$ 309,40
+                        </p>
+
+                        <div class="pix-code" id="codigoTenis">
+                            00020101021226840014BR.GOV.BCB.PIX01367c5f4a15-af35-4da6-bf6b-e102e4ea03da0222Pagamento jerionaia-da5204000053039865406309.405802BR5925JERIONAIA DA SILVA GUEDES6009ITAMARAJU62290525QRCCkpHa6Gdu7cp96D17IdYj1630443B4
+                        </div>
+
+                        <button
+                            class="copy-btn"
+                            onclick="copiarPix('codigoTenis')">
+
+                            COPIAR PIX
+
+                        </button>
+
+                    </div>
 
                 </div>
             </div>
 
-            <!-- Produto 3 -->
+
+            <!-- =========================
+                 GARRAFA
+            ========================= -->
+
             <div class="product-card">
 
-                <img src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=500&q=80"
-                     alt="Garrafa Térmica">
+                <img
+                    src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
+                    alt="Garrafa Térmica Esportiva">
 
                 <div class="product-info">
 
-                    <h3>Garrafa Térmica Esportiva</h3>
+                    <div class="product-category">
+                        Acessórios
+                    </div>
+
+                    <h3>
+                        Garrafa Térmica Esportiva
+                    </h3>
 
                     <div class="price">
                         R$ 59,90
                     </div>
 
-                    <a href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica."
-                       target="_blank"
-                       class="btn-buy">
-                        Comprar via WhatsApp
+                    <a
+                        href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica%20Esportiva%20por%20R$%2059,90."
+                        target="_blank"
+                        class="btn-buy btn-black">
+
+                        COMPRAR VIA WHATSAPP
+
                     </a>
 
                 </div>
             </div>
 
         </div>
-    </div>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
-       class="whatsapp-float"
-       target="_blank"
-       title="Fale conosco no WhatsApp">
+    </section>
+
+
+    <!-- =========================
+         BENEFÍCIOS
+    ========================= -->
+
+    <section class="benefits">
+
+        <div class="benefit-grid">
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <h3>
+                    Performance
+                </h3>
+
+                <p>
+                    Produtos pensados para acompanhar seus treinos.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>
+                    Compra segura
+                </h3>
+
+                <p>
+                    Pagamento realizado através da InfinitePay.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-headset"></i>
+
+                <h3>
+                    Atendimento
+                </h3>
+
+                <p>
+                    Fale diretamente conosco pelo WhatsApp.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHATSAPP
+    ========================= -->
+
+    <a
+        href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+        class="whatsapp-float"
+        target="_blank"
+        title="Fale conosco">
 
         <i class="fa-brands fa-whatsapp"></i>
 
     </a>
 
-    <!-- Rodapé -->
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
     <footer>
+
+        <div class="footer-logo">
+            JEFINHO RUN
+        </div>
+
         <p>
-            &copy; 2026 Jefinho Run. Todos os direitos reservados.
+            © 2026 Jefinho Run. Todos os direitos reservados.
         </p>
+
     </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function mostrarPix(id) {
+
+            const caixa = document.getElementById(id);
+
+            if (caixa.style.display === "block") {
+
+                caixa.style.display = "none";
+
+            } else {
+
+                caixa.style.display = "block";
+
+            }
+
+        }
+
+
+        function copiarPix(id) {
+
+            const codigo =
+                document.getElementById(id).innerText;
+
+            navigator.clipboard.writeText(codigo)
+
+                .then(function() {
+
+                    alert(
+                        "Código Pix copiado com sucesso!"
+                    );
+
+                })
+
+                .catch(function() {
+
+                    alert(
+                        "Não foi possível copiar automaticamente. Selecione e copie o código."
+                    );
+
+                });
+
+        }
+
+    </script>
 
 </body>
 </html>
