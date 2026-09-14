@@ -257,4 +257,1541 @@ nav a {
 
 .pix-test {
     background: #f5f5f5;
-    border: 1px
+    border: 1px solid #dddddd;
+    padding: 14px;
+    margin-top: 15px;
+    display: none;
+}
+
+.pix-test p {
+    font-size: 11px;
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+.pix-code {
+    font-size: 9px;
+    word-break: break-all;
+    color: #333333;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.copy-btn {
+    width: 100%;
+    padding: 10px;
+    background: #111111;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.benefits {
+    background: #f6f6f6;
+    padding: 65px 25px;
+    margin-top: 90px;
+}
+
+.benefit-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 35px;
+    text-align: center;
+}
+
+.benefit i {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.benefit h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.benefit p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #777777;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+
+    width: 56px;
+    height: 56px;
+
+    background: #111111;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    font-size: 25px;
+
+    z-index: 2000;
+}
+
+/* =========================
+   CARRINHO
+========================= */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.55);
+
+    display: none;
+
+    z-index: 3000;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+
+.cart {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 430px;
+    max-width: 100%;
+    height: 100%;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-header {
+    padding: 22px;
+
+    border-bottom: 1px solid #dddddd;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    font-size: 21px;
+}
+
+.close-cart {
+    border: none;
+    background: none;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #777777;
+
+    padding: 60px 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #eeeeee;
+
+    padding: 15px 0;
+
+    display: flex;
+    gap: 12px;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.quantity button {
+    width: 27px;
+    height: 27px;
+
+    border: 1px solid #cccccc;
+    background: #ffffff;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+}
+
+.remove-item {
+    border: none;
+    background: none;
+
+    color: #777777;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    margin-top: 7px;
+}
+
+.cart-footer {
+    border-top: 1px solid #dddddd;
+
+    padding: 20px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+.checkout-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    background: #111111;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   MODAL FINALIZAÇÃO
+========================= */
+
+.checkout-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.60);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 4000;
+
+    padding: 20px;
+}
+
+.checkout-overlay.active {
+    display: flex;
+}
+
+.checkout-box {
+    width: 100%;
+    max-width: 430px;
+
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 8px;
+}
+
+.checkout-box h2 {
+    margin-bottom: 8px;
+}
+
+.checkout-box p {
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.checkout-box input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 4px;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+}
+
+.confirm-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    background: #111111;
+    color: #ffffff;
+
+    border-radius: 4px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.cancel-btn {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    border: 1px solid #cccccc;
+
+    background: #ffffff;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111111;
+    color: #999999;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    margin-top: 80px;
+}
+
+footer .footer-logo {
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+footer p {
+    font-size: 12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 16px 18px;
+
+        flex-wrap: wrap;
+
+        gap: 14px;
+    }
+
+    nav {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .cart-button {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 470px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .container {
+        margin: 60px auto;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+
+        right: 17px;
+        bottom: 17px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="logo">
+JEFINHO <span>RUN</span>
+</div>
+
+<nav>
+
+<a href="#">
+Início
+</a>
+
+<a href="#produtos">
+Produtos
+</a>
+
+<a
+href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+target="_blank">
+
+Contato
+
+</a>
+
+<button
+class="cart-button"
+onclick="abrirCarrinho()">
+
+🛒 Carrinho
+
+<span
+class="cart-count"
+id="cartCount">
+
+0
+
+</span>
+
+</button>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-small">
+JEFINHO RUN
+</div>
+
+<h1>
+Supere seus limites.
+</h1>
+
+<p>
+Performance, estilo e conforto para acompanhar
+cada quilômetro da sua jornada.
+</p>
+
+<a href="#produtos" class="hero-btn">
+VER PRODUTOS
+</a>
+
+</section>
+
+
+<!-- =========================
+     PRODUTOS
+========================= -->
+
+<section class="container" id="produtos">
+
+<div class="section-header">
+
+<span>
+Nossa seleção
+</span>
+
+<h2>
+Produtos em destaque
+</h2>
+
+<p>
+Equipamentos escolhidos para quem leva a corrida a sério.
+</p>
+
+</div>
+
+
+<div class="product-grid">
+
+
+<!-- CAMISA -->
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
+alt="Camisa Dry-Fit Performance">
+
+<div class="product-info">
+
+<div class="product-category">
+Performance
+</div>
+
+<h3>
+Camisa Dry-Fit Performance
+</h3>
+
+<div class="price">
+R$ 99,90
+</div>
+
+<button
+class="btn-buy btn-black"
+onclick="adicionarCarrinho(
+'Camisa Dry-Fit Performance',
+99.90,
+'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85'
+)">
+
+🛒 ADICIONAR AO CARRINHO
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TÊNIS -->
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+alt="Tênis de Corrida">
+
+<div class="product-info">
+
+<div class="product-category">
+Running
+</div>
+
+<h3>
+Tênis de Corrida Pro
+</h3>
+
+<div class="price">
+R$ 349,90
+</div>
+
+<button
+class="btn-buy btn-black"
+onclick="adicionarCarrinho(
+'Tênis de Corrida Pro',
+349.90,
+'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85'
+)">
+
+🛒 ADICIONAR AO CARRINHO
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- GARRAFA -->
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
+alt="Garrafa Térmica Esportiva">
+
+<div class="product-info">
+
+<div class="product-category">
+Acessórios
+</div>
+
+<h3>
+Garrafa Térmica Esportiva
+</h3>
+
+<div class="price">
+R$ 59,90
+</div>
+
+<button
+class="btn-buy btn-black"
+onclick="adicionarCarrinho(
+'Garrafa Térmica Esportiva',
+59.90,
+'https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85'
+)">
+
+🛒 ADICIONAR AO CARRINHO
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     BENEFÍCIOS
+========================= -->
+
+<section class="benefits">
+
+<div class="benefit-grid">
+
+
+<div class="benefit">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>
+Performance
+</h3>
+
+<p>
+Produtos pensados para acompanhar seus treinos.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>
+Compra segura
+</h3>
+
+<p>
+Pagamento realizado através da InfinitePay.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>
+Atendimento
+</h3>
+
+<p>
+Fale diretamente conosco pelo WhatsApp.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+class="whatsapp-float"
+target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+<!-- =========================
+     CARRINHO
+========================= -->
+
+<div
+class="cart-overlay"
+id="cartOverlay"
+onclick="fecharCarrinhoFora(event)">
+
+<div class="cart">
+
+<div class="cart-header">
+
+<h2>
+🛒 Meu Carrinho
+</h2>
+
+<button
+class="close-cart"
+onclick="fecharCarrinho()">
+
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems">
+
+</div>
+
+
+<div class="cart-footer">
+
+<div class="cart-total">
+
+<span>
+Total
+</span>
+
+<span id="cartTotal">
+R$ 0,00
+</span>
+
+</div>
+
+
+<button
+class="checkout-btn"
+onclick="abrirFinalizacao()">
+
+FINALIZAR PEDIDO
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FINALIZAÇÃO
+========================= -->
+
+<div
+class="checkout-overlay"
+id="checkoutOverlay">
+
+<div class="checkout-box">
+
+<h2>
+Finalizar pedido
+</h2>
+
+<p>
+Informe seus dados para registrar o pedido.
+</p>
+
+
+<input
+type="text"
+id="clienteNome"
+placeholder="Seu nome">
+
+
+<input
+type="tel"
+id="clienteWhatsapp"
+placeholder="Seu WhatsApp">
+
+
+<button
+class="confirm-btn"
+onclick="finalizarPedido()">
+
+CONFIRMAR PEDIDO
+
+</button>
+
+
+<button
+class="cancel-btn"
+onclick="fecharFinalizacao()">
+
+CANCELAR
+
+</button>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<div class="footer-logo">
+JEFINHO RUN
+</div>
+
+<p>
+© 2026 Jefinho Run. Todos os direitos reservados.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL =
+"https://xlqgxzgblawjjabyraki.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_WUocoVHVarxg6EPmLRtD0g_egOqFNog";
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+/* =========================
+   WHATSAPP DA LOJA
+========================= */
+
+const WHATSAPP_LOJA =
+"5531995498420";
+
+
+/* =========================
+   CARRINHO
+========================= */
+
+let carrinho =
+JSON.parse(
+localStorage.getItem("jefinhoCarrinho")
+) || [];
+
+
+/* =========================
+   SALVAR CARRINHO
+========================= */
+
+function salvarCarrinho() {
+
+    localStorage.setItem(
+        "jefinhoCarrinho",
+        JSON.stringify(carrinho)
+    );
+
+}
+
+
+/* =========================
+   ADICIONAR PRODUTO
+========================= */
+
+function adicionarCarrinho(
+    nome,
+    preco,
+    imagem
+) {
+
+    const existente =
+        carrinho.find(
+            item => item.nome === nome
+        );
+
+
+    if (existente) {
+
+        existente.quantidade++;
+
+    } else {
+
+        carrinho.push({
+
+            nome: nome,
+
+            preco: preco,
+
+            imagem: imagem,
+
+            quantidade: 1
+
+        });
+
+    }
+
+
+    salvarCarrinho();
+
+    atualizarCarrinho();
+
+    abrirCarrinho();
+
+
+    alert(
+        "✅ Produto adicionado ao carrinho!"
+    );
+
+}
+
+
+/* =========================
+   ATUALIZAR CARRINHO
+========================= */
+
+function atualizarCarrinho() {
+
+    const container =
+        document.getElementById("cartItems");
+
+    const contador =
+        document.getElementById("cartCount");
+
+    const totalElement =
+        document.getElementById("cartTotal");
+
+
+    let quantidadeTotal = 0;
+
+    let total = 0;
+
+
+    carrinho.forEach(item => {
+
+        quantidadeTotal +=
+            item.quantidade;
+
+        total +=
+            item.preco *
+            item.quantidade;
+
+    });
+
+
+    contador.innerText =
+        quantidadeTotal;
+
+
+    totalElement.innerText =
+        formatarMoeda(total);
+
+
+    if (carrinho.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-cart">
+                <p>🛒 Seu carrinho está vazio.</p>
+                <br>
+                <p>Adicione algum produto para começar.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    carrinho.forEach(
+        (item, index) => {
+
+            const div =
+                document.createElement("div");
+
+            div.className =
+                "cart-item";
+
+
+            div.innerHTML = `
+
+                <img
+                src="${item.imagem}"
+                alt="${item.nome}">
+
+                <div class="cart-item-info">
+
+                    <h3>
+                        ${item.nome}
+                    </h3>
+
+                    <div class="cart-item-price">
+                        ${formatarMoeda(item.preco)}
+                    </div>
+
+                    <div class="quantity">
+
+                        <button
+                        onclick="alterarQuantidade(${index}, -1)">
+                        −
+                        </button>
+
+                        <strong>
+                            ${item.quantidade}
+                        </strong>
+
+                        <button
+                        onclick="alterarQuantidade(${index}, 1)">
+                        +
+                        </button>
+
+                    </div>
+
+                    <button
+                    class="remove-item"
+                    onclick="removerProduto(${index})">
+
+                    🗑️ Remover
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* =========================
+   ALTERAR QUANTIDADE
+========================= */
+
+function alterarQuantidade(
+    index,
+    quantidade
+) {
+
+    carrinho[index].quantidade +=
+        quantidade;
+
+
+    if (
+        carrinho[index].quantidade <= 0
+    ) {
+
+        carrinho.splice(index, 1);
+
+    }
+
+
+    salvarCarrinho();
+
+    atualizarCarrinho();
+
+}
+
+
+/* =========================
+   REMOVER
+========================= */
+
+function removerProduto(index) {
+
+    carrinho.splice(index, 1);
+
+    salvarCarrinho();
+
+    atualizarCarrinho();
+
+}
+
+
+/* =========================
+   ABRIR CARRINHO
+========================= */
+
+function abrirCarrinho() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("active");
+
+}
+
+
+/* =========================
+   FECHAR CARRINHO
+========================= */
+
+function fecharCarrinho() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("active");
+
+}
+
+
+/* =========================
+   FECHAR CLICANDO FORA
+========================= */
+
+function fecharCarrinhoFora(event) {
+
+    if (
+        event.target.id ===
+        "cartOverlay"
+    ) {
+
+        fecharCarrinho();
+
+    }
+
+}
+
+
+/* =========================
+   FINALIZAÇÃO
+========================= */
+
+function abrirFinalizacao() {
+
+    if (carrinho.length === 0) {
+
+        alert(
+            "🛒 Seu carrinho está vazio."
+        );
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("checkoutOverlay")
+        .classList.add("active");
+
+}
+
+
+function fecharFinalizacao() {
+
+    document
+        .getElementById("checkoutOverlay")
+        .classList.remove("active");
+
+}
+
+
+/* =========================
+   FORMATAR MOEDA
+========================= */
+
+function formatarMoeda(valor) {
+
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style: "currency",
+            currency: "BRL"
+        }
+    );
+
+}
+
+
+/* =========================
+   GERAR PEDIDO
+========================= */
+
+function gerarNumeroPedido() {
+
+    const agora =
+        new Date();
+
+    const numero =
+        agora.getFullYear().toString() +
+        (agora.getMonth() + 1)
+            .toString()
+            .padStart(2, "0") +
+        agora.getDate()
+            .toString()
+            .padStart(2, "0") +
+        agora.getHours()
+            .toString()
+            .padStart(2, "0") +
+        agora.getMinutes()
+            .toString()
+            .padStart(2, "0") +
+        agora.getSeconds()
+            .toString()
+            .padStart(2, "0");
+
+    return "JF-" + numero;
+
+}
+
+
+/* =========================
+   FINALIZAR PEDIDO
+========================= */
+
+async function finalizarPedido() {
+
+    const nome =
+        document
+        .getElementById("clienteNome")
+        .value
+        .trim();
+
+
+    const whatsapp =
+        document
+        .getElementById("clienteWhatsapp")
+        .value
+        .trim();
+
+
+    if (!nome) {
+
+        alert(
+            "⚠️ Digite seu nome."
+        );
+
+        return;
+
+    }
+
+
+    if (!whatsapp) {
+
+        alert(
+            "⚠️ Digite seu WhatsApp."
+        );
+
+        return;
+
+    }
+
+
+    if (carrinho.length === 0) {
+
+        alert(
+            "🛒 Seu carrinho está vazio."
+        );
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    const produtos =
+        carrinho.map(item => {
+
+            const subtotal =
+                item.preco *
+                item.quantidade;
+
+
+            total += subtotal;
+
+
+            return (
+                item.nome +
+                " x" +
+                item.quantidade +
+                " - " +
+                formatarMoeda(subtotal)
+            );
+
+        }).join(" | ");
+
+
+    const numeroPedido =
+        gerarNumeroPedido();
+
+
+    const pedido = {
+
+        numero_pedido:
+            numeroPedido,
+
+        nome_cliente:
+            nome,
+
+        whatsapp:
+            whatsapp,
+
+        produtos:
+            produtos,
+
+        valor_total:
+            total,
+
+        status:
+            "pendente",
+
+        criado_em:
+            new Date().toISOString()
+
+    };
+
+
+    alert(
+        "🔄 Registrando pedido..."
+    );
+
+
+    try {
+
+        const { error } =
+            await supabaseClient
+            .from("pedidos")
+            .insert([pedido]);
+
+
+        if (error) {
+
+            console.error(
+                "ERRO SUPABASE:",
+                error
+            );
+
+
+            alert(
+                "❌ ERRO NO SUPABASE\n\n" +
+                "Mensagem:\n" +
+                error.message +
+                "\n\nCódigo:\n" +
+                error.code
+            );
+
+            return;
+
+        }
+
+
+        /* =========================
+           MENSAGEM WHATSAPP
+        ========================= */
+
+        let mensagem =
+            "Olá! Fiz um pedido pelo site Jefinho Run.%0A%0A";
+
+
+        mensagem +=
+            "*Pedido:* " +
+            numeroPedido +
+            "%0A";
+
+
+        mensagem +=
+            "*Cliente:* " +
+            encodeURIComponent(nome) +
+            "%0A";
+
+
+        mensagem +=
+            "*WhatsApp:* " +
+            encodeURIComponent(whatsapp) +
+            "%0A%0A";
+
+
+        mensagem +=
+            "*Produtos:*%0A";
+
+
+        carrinho.forEach(item => {
+
+            mensagem +=
+                "- " +
+                encodeURIComponent(item.nome) +
+                " x" +
+                item.quantidade +
+                "%0A";
+
+        });
+
+
+        mensagem +=
+            "%0A*Total:* " +
+            encodeURIComponent(
+                formatarMoeda(total)
+            );
+
+
+        /* =========================
+           LIMPAR CARRINHO
+        ========================= */
+
+        carrinho = [];
+
+        salvarCarrinho();
+
+        atualizarCarrinho();
+
+        fecharFinalizacao();
+
+        fecharCarrinho();
+
+
+        /* =========================
+           CONFIRMAÇÃO
+        ========================= */
+
+        alert(
+            "✅ PEDIDO REGISTRADO!\n\n" +
+            "Número: " +
+            numeroPedido +
+            "\n\n" +
+            "Total: " +
+            formatarMoeda(total) +
+            "\n\n" +
+            "Agora você será direcionado para o WhatsApp."
+        );
+
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        window.open(
+            "https://wa.me/" +
+            WHATSAPP_LOJA +
+            "?text=" +
+            mensagem,
+            "_blank"
+        );
+
+
+    } catch (erro) {
+
+        console.error(
+            "ERRO:",
+            erro
+        );
+
+
+        alert(
+            "❌ ERRO INESPERADO\n\n" +
+            erro.message
+        );
+
+    }
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+atualizarCarrinho();
+
+</script>
+
+</body>
+</html>
