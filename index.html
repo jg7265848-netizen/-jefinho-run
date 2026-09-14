@@ -449,7 +449,7 @@ R$ 99,90
 href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
 target="_blank"
 class="btn-buy btn-black"
-onclick="registrarPedido('Camisa Dry-Fit Performance', 99.90, 'InfinitePay')">
+onclick="iniciarCompra(event, this, 'Camisa Dry-Fit Performance', 99.90, 'InfinitePay')">
 
 💳 PAGAR COM INFINITEPAY
 
@@ -459,7 +459,7 @@ onclick="registrarPedido('Camisa Dry-Fit Performance', 99.90, 'InfinitePay')">
 href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20Performance%20por%20R$%2099,90."
 target="_blank"
 class="btn-buy btn-white"
-onclick="registrarPedido('Camisa Dry-Fit Performance', 99.90, 'WhatsApp')">
+onclick="iniciarCompra(event, this, 'Camisa Dry-Fit Performance', 99.90, 'WhatsApp')">
 
 COMPRAR VIA WHATSAPP
 
@@ -467,7 +467,7 @@ COMPRAR VIA WHATSAPP
 
 <button
 class="btn-buy btn-white"
-onclick="mostrarPix('pixCamisa'); registrarPedido('Camisa Dry-Fit Performance', 99.90, 'PIX')">
+onclick="mostrarPix('pixCamisa'); iniciarPix('Camisa Dry-Fit Performance', 99.90, 'PIX')">
 
 PIX DE TESTE
 
@@ -523,7 +523,7 @@ R$ 349,90
 href="#"
 target="_blank"
 class="btn-buy btn-black"
-onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'InfinitePay'); return false;">
+onclick="iniciarCompra(event, this, 'Tênis de Corrida Pro', 349.90, 'InfinitePay');">
 
 💳 PAGAR COM INFINITEPAY
 
@@ -533,7 +533,7 @@ onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'InfinitePay'); return
 href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro%20por%20R$%20349,90."
 target="_blank"
 class="btn-buy btn-white"
-onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'WhatsApp')">
+onclick="iniciarCompra(event, this, 'Tênis de Corrida Pro', 349.90, 'WhatsApp')">
 
 COMPRAR VIA WHATSAPP
 
@@ -541,7 +541,7 @@ COMPRAR VIA WHATSAPP
 
 <button
 class="btn-buy btn-white"
-onclick="mostrarPix('pixTenis'); registrarPedido('Tênis de Corrida Pro', 349.90, 'PIX')">
+onclick="mostrarPix('pixTenis'); iniciarPix('Tênis de Corrida Pro', 349.90, 'PIX')">
 
 PIX DE TESTE
 
@@ -597,7 +597,7 @@ R$ 59,90
 href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica%20Esportiva%20por%20R$%2059,90."
 target="_blank"
 class="btn-buy btn-black"
-onclick="registrarPedido('Garrafa Térmica Esportiva', 59.90, 'WhatsApp')">
+onclick="iniciarCompra(event, this, 'Garrafa Térmica Esportiva', 59.90, 'WhatsApp')">
 
 COMPRAR VIA WHATSAPP
 
@@ -720,10 +720,46 @@ function gerarNumeroPedido() {
 
 
 /* =========================
+   PEDIR DADOS DO CLIENTE
+========================= */
+
+function pedirDadosCliente() {
+
+    const nome = prompt(
+        "👤 Qual é o seu nome?"
+    );
+
+    if (!nome || nome.trim() === "") {
+        alert("⚠️ Digite seu nome para continuar.");
+        return null;
+    }
+
+    const whatsapp = prompt(
+        "📱 Qual é o seu WhatsApp?\n\nExemplo: 31999999999"
+    );
+
+    if (!whatsapp || whatsapp.trim() === "") {
+        alert("⚠️ Digite seu WhatsApp para continuar.");
+        return null;
+    }
+
+    return {
+        nome: nome.trim(),
+        whatsapp: whatsapp.trim()
+    };
+}
+
+
+/* =========================
    REGISTRAR PEDIDO
 ========================= */
 
-async function registrarPedido(produto, valor, pagamento) {
+async function registrarPedido(
+    produto,
+    valor,
+    pagamento,
+    cliente
+) {
 
     alert("🔄 Registrando pedido...");
 
@@ -731,9 +767,9 @@ async function registrarPedido(produto, valor, pagamento) {
 
         numero_pedido: gerarNumeroPedido(),
 
-        nome_cliente: "Cliente do site",
+        nome_cliente: cliente.nome,
 
-        whatsapp: "",
+        whatsapp: cliente.whatsapp,
 
         produtos: produto,
 
@@ -757,7 +793,10 @@ async function registrarPedido(produto, valor, pagamento) {
 
         if (error) {
 
-            console.error("ERRO SUPABASE:", error);
+            console.error(
+                "ERRO SUPABASE:",
+                error
+            );
 
             alert(
                 "❌ ERRO NO SUPABASE\n\n" +
@@ -769,16 +808,23 @@ async function registrarPedido(produto, valor, pagamento) {
                 (error.details || "nenhum")
             );
 
-            return;
+            return false;
         }
 
 
-        console.log("PEDIDO REGISTRADO:", data);
+        console.log(
+            "PEDIDO REGISTRADO:",
+            data
+        );
 
         alert(
             "✅ PEDIDO REGISTRADO!\n\n" +
             "Número: " +
             pedido.numero_pedido +
+            "\n\nCliente: " +
+            cliente.nome +
+            "\n\nWhatsApp: " +
+            cliente.whatsapp +
             "\n\nProduto: " +
             produto +
             "\n\nValor: R$ " +
@@ -787,22 +833,103 @@ async function registrarPedido(produto, valor, pagamento) {
             pagamento
         );
 
+        return true;
+
 
     } catch (erro) {
 
-        console.error("ERRO:", erro);
+        console.error(
+            "ERRO:",
+            erro
+        );
 
         alert(
             "❌ ERRO INESPERADO\n\n" +
             erro.message
         );
+
+        return false;
     }
+}
+
+
+/* =========================
+   COMPRA
+========================= */
+
+async function iniciarCompra(
+    event,
+    elemento,
+    produto,
+    valor,
+    pagamento
+) {
+
+    event.preventDefault();
+
+    const cliente =
+        pedirDadosCliente();
+
+    if (!cliente) {
+        return false;
+    }
+
+    const sucesso =
+        await registrarPedido(
+            produto,
+            valor,
+            pagamento,
+            cliente
+        );
+
+    if (!sucesso) {
+        return false;
+    }
+
+    const link =
+        elemento.href;
+
+    if (
+        link &&
+        link !== "#" &&
+        link !== window.location.href + "#"
+    ) {
+
+        window.open(
+            link,
+            "_blank"
+        );
+    }
+
+    return false;
 }
 
 
 /* =========================
    PIX
 ========================= */
+
+async function iniciarPix(
+    produto,
+    valor,
+    pagamento
+) {
+
+    const cliente =
+        pedirDadosCliente();
+
+    if (!cliente) {
+        return;
+    }
+
+    await registrarPedido(
+        produto,
+        valor,
+        pagamento,
+        cliente
+    );
+}
+
 
 function mostrarPix(id) {
 
