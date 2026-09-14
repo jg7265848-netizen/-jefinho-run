@@ -257,6 +257,10 @@ nav a {
     text-align: center;
 }
 
+.benefit {
+    text-align: center;
+}
+
 .benefit i {
     font-size: 24px;
     margin-bottom: 15px;
@@ -345,6 +349,13 @@ footer p {
 
     .product-card img {
         height: 250px;
+    }
+
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        right: 17px;
+        bottom: 17px;
     }
 }
 </style>
@@ -509,10 +520,10 @@ R$ 349,90
 </div>
 
 <a
-href="https://link.infinitepay.io/jerionaia-da-silva/VC1DLUMtSQ-fnAoxFzK6h-99,90"
+href="#"
 target="_blank"
 class="btn-buy btn-black"
-onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'InfinitePay')">
+onclick="registrarPedido('Tênis de Corrida Pro', 349.90, 'InfinitePay'); return false;">
 
 💳 PAGAR COM INFINITEPAY
 
@@ -598,7 +609,6 @@ COMPRAR VIA WHATSAPP
 </div>
 </section>
 
-
 <section class="benefits">
 
 <div class="benefit-grid">
@@ -649,7 +659,6 @@ Fale diretamente conosco pelo WhatsApp.
 
 </section>
 
-
 <a
 href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
 class="whatsapp-float"
@@ -658,7 +667,6 @@ target="_blank">
 <i class="fa-brands fa-whatsapp"></i>
 
 </a>
-
 
 <footer>
 
@@ -671,7 +679,6 @@ JEFINHO RUN
 </p>
 
 </footer>
-
 
 <script>
 
@@ -693,102 +700,102 @@ SUPABASE_KEY
 
 
 /* =========================
+   GERAR NÚMERO DO PEDIDO
+========================= */
+
+function gerarNumeroPedido() {
+
+    const agora = new Date();
+
+    const numero =
+        agora.getFullYear().toString() +
+        (agora.getMonth() + 1).toString().padStart(2, "0") +
+        agora.getDate().toString().padStart(2, "0") +
+        agora.getHours().toString().padStart(2, "0") +
+        agora.getMinutes().toString().padStart(2, "0") +
+        agora.getSeconds().toString().padStart(2, "0");
+
+    return "JF-" + numero;
+}
+
+
+/* =========================
    REGISTRAR PEDIDO
 ========================= */
 
 async function registrarPedido(produto, valor, pagamento) {
 
-    alert("🔄 Tentando registrar o pedido...");
+    alert("🔄 Registrando pedido...");
 
     const pedido = {
 
-        cliente_nome: "Cliente do site",
+        numero_pedido: gerarNumeroPedido(),
 
-        cliente_telefone: "",
+        nome_cliente: "Cliente do site",
 
-        cliente_email: "",
+        whatsapp: "",
 
-        endereco: "",
-
-        produtos: [
-            {
-                nome: produto,
-                quantidade: 1,
-                valor: valor
-            }
-        ],
+        produtos: produto,
 
         valor_total: valor,
 
         status: "pendente",
 
-        forma_pagamento: pagamento,
+        criado_em: new Date().toISOString()
 
-        observacao:
-        "Pedido iniciado pelo site Jefinho Run.",
-
-        criado_em:
-        new Date().toISOString()
     };
 
 
     try {
 
-        const resultado =
+        const { data, error } =
         await supabaseClient
         .from("Pedidos")
         .insert([pedido])
         .select();
 
 
-        if (resultado.error) {
+        if (error) {
 
-            console.error(
-                "ERRO SUPABASE:",
-                resultado.error
-            );
+            console.error("ERRO SUPABASE:", error);
 
             alert(
                 "❌ ERRO NO SUPABASE\n\n" +
                 "Mensagem:\n" +
-                resultado.error.message +
+                error.message +
                 "\n\nCódigo:\n" +
-                resultado.error.code +
+                error.code +
                 "\n\nDetalhes:\n" +
-                resultado.error.details
+                (error.details || "nenhum")
             );
 
-            return false;
+            return;
         }
 
 
-        console.log(
-            "PEDIDO REGISTRADO:",
-            resultado.data
-        );
+        console.log("PEDIDO REGISTRADO:", data);
 
         alert(
             "✅ PEDIDO REGISTRADO!\n\n" +
-            "Produto: " + produto +
-            "\nValor: R$ " + valor.toFixed(2)
+            "Número: " +
+            pedido.numero_pedido +
+            "\n\nProduto: " +
+            produto +
+            "\n\nValor: R$ " +
+            valor.toFixed(2) +
+            "\n\nPagamento: " +
+            pagamento
         );
-
-        return true;
 
 
     } catch (erro) {
 
-        console.error(
-            "ERRO INESPERADO:",
-            erro
-        );
+        console.error("ERRO:", erro);
 
         alert(
             "❌ ERRO INESPERADO\n\n" +
             erro.message
         );
-
-        return false;
     }
 }
 
@@ -809,7 +816,6 @@ function mostrarPix(id) {
     } else {
 
         caixa.style.display = "block";
-
     }
 }
 
