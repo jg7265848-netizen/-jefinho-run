@@ -1,9 +1,11 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jefinho Run - Loja de Corrida</title>
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -160,11 +162,51 @@
             text-decoration: none;
             font-weight: bold;
             transition: background 0.3s;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-size: 15px;
         }
 
         .product-info .btn-buy:hover {
             background-color: #00ff88;
             color: #111;
+        }
+
+        .product-info .btn-pix {
+            background-color: #00a859;
+        }
+
+        .product-info .btn-pix:hover {
+            background-color: #008f4c;
+            color: #fff;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
         }
 
         /* Rodapé */
@@ -186,7 +228,7 @@
         <nav>
             <a href="#">Início</a>
             <a href="#produtos">Produtos</a>
-            <a href="#">Contato</a>
+            <a href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20suporte." target="_blank">Contato</a>
         </nav>
     </header>
 
@@ -202,23 +244,24 @@
         <h2 class="section-title">Nossos Destaques</h2>
         
         <div class="product-grid">
-            <!-- Produto 1 -->
+            <!-- Produto 1 (Exemplo com Pix de R$ 100,00) -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Tênis de Corrida">
+                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=500&q=80" alt="Camisa Dry-Fit">
                 <div class="product-info">
-                    <h3>Tênis de Corrida Pro</h3>
-                    <div class="price">R$ 349,90</div>
-                    <a href="#" class="btn-buy">Comprar</a>
+                    <h3>Camisa Dry-Fit Performance</h3>
+                    <div class="price">R$ 100,00</div>
+                    <a href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Camisa%20Dry-Fit%20(R$%20100)." target="_blank" class="btn-buy">Comprar via WhatsApp</a>
+                    <button class="btn-buy btn-pix" onclick="copiarPix()">Copiar Pix (R$ 100)</button>
                 </div>
             </div>
 
             <!-- Produto 2 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=500&q=80" alt="Camisa Dry-Fit">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Tênis de Corrida">
                 <div class="product-info">
-                    <h3>Camisa Dry-Fit Performance</h3>
-                    <div class="price">R$ 89,90</div>
-                    <a href="#" class="btn-buy">Comprar</a>
+                    <h3>Tênis de Corrida Pro</h3>
+                    <div class="price">R$ 349,90</div>
+                    <a href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20o%20Tênis%20de%20Corrida%20Pro." target="_blank" class="btn-buy">Comprar via WhatsApp</a>
                 </div>
             </div>
 
@@ -228,16 +271,32 @@
                 <div class="product-info">
                     <h3>Garrafa Térmica Esportiva</h3>
                     <div class="price">R$ 59,90</div>
-                    <a href="#" class="btn-buy">Comprar</a>
+                    <a href="https://wa.me/5531995498420?text=Olá!%20Gostaria%20de%20comprar%20a%20Garrafa%20Térmica." target="_blank" class="btn-buy">Comprar via WhatsApp</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run." class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2026 Jefinho Run. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Script para copiar o Pix automaticamente -->
+    <script>
+        function copiarPix() {
+            const codigoPix = "00020101021126500014br.gov.bcb.pix0128jeffersonpimenta02@gmail.com5204000053039865406100.005802BR5924JEFFERSON GUEDES PIMENTA6009SAO PAULO622905251M2GM8910FFC1DSB2FPQQ2PTW630488B0";
+            navigator.clipboard.writeText(codigoPix).then(() => {
+                alert("Código Pix de R$ 100,00 copiado com sucesso! Cole no aplicativo do seu banco para pagar.");
+            }).catch(err => {
+                alert("Erro ao copiar o Pix. Tente novamente.");
+            });
+        }
+    </script>
 </body>
 </html>
