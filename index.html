@@ -1,332 +1,243 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jefinho Run | Loja de Corrida</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jefinho Run - Loja de Corrida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
 
-    body {
-      background: #f5f5f5;
-      color: #222;
-    }
+        /* Cabeçalho */
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    header {
-      background: #111;
-      color: white;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #00ff88;
+        }
 
-    .header-content {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
+        header nav a:hover {
+            color: #00ff88;
+        }
 
-    .logo span {
-      color: #39d353;
-    }
+        /* Banner Principal */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
 
-    .cart {
-      background: #39d353;
-      color: #111;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
 
-    .hero {
-      background: linear-gradient(135deg, #111, #333);
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
+        .btn {
+            background-color: #00ff88;
+            color: #111;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 25px;
-      color: #ddd;
-    }
+        .btn:hover {
+            background-color: #00cc6a;
+        }
 
-    .button {
-      display: inline-block;
-      background: #39d353;
-      color: #111;
-      padding: 14px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        /* Seção de Produtos */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    .products {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #222;
+        }
 
-    .products h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 30px;
-    }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    .product-image {
-      height: 200px;
-      background: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 70px;
-    }
+        .product-info {
+            padding: 20px;
+        }
 
-    .card-content {
-      padding: 20px;
-    }
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
+        .product-info .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00a859;
+            margin-bottom: 15px;
+        }
 
-    .card p {
-      color: #666;
-      margin-bottom: 15px;
-    }
+        .product-info .btn-buy {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-    .price {
-      font-size: 23px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+        .product-info .btn-buy:hover {
+            background-color: #00ff88;
+            color: #111;
+        }
 
-    .buy {
-      width: 100%;
-      border: none;
-      background: #111;
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .buy:hover {
-      background: #39d353;
-      color: #111;
-    }
-
-    .about {
-      background: white;
-      text-align: center;
-      padding: 50px 20px;
-      margin-top: 40px;
-    }
-
-    .about h2 {
-      margin-bottom: 15px;
-      font-size: 30px;
-    }
-
-    .about p {
-      max-width: 700px;
-      margin: auto;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-    }
-
-    footer span {
-      color: #39d353;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .logo {
-        font-size: 22px;
-      }
-    }
-  </style>
+        /* Rodapé */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+    </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        Jefinho <span>Run</span>
-      </div>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">⚡ Jefinho Run</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
 
-      <div class="cart">
-        🛒 Carrinho: <span id="cart-count">0</span>
-      </div>
+    <!-- Banner -->
+    <div class="hero">
+        <h1>Supere seus limites</h1>
+        <p>Os melhores equipamentos, roupas e acessórios para acompanhar você em cada quilômetro.</p>
+        <a href="#produtos" class="btn">Ver Produtos</a>
     </div>
-  </header>
 
-  <section class="hero">
-    <h1>Jefinho Run 🏃‍♂️</h1>
-    <p>Produtos para quem vive a corrida.</p>
-    <a href="#produtos" class="button">Ver produtos</a>
-  </section>
+    <!-- Vitrine -->
+    <div class="container" id="produtos">
+        <h2 class="section-title">Nossos Destaques</h2>
+        
+        <div class="product-grid">
+            <!-- Produto 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Tênis de Corrida">
+                <div class="product-info">
+                    <h3>Tênis de Corrida Pro</h3>
+                    <div class="price">R$ 349,90</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
 
-  <section class="products" id="produtos">
+            <!-- Produto 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=500&q=80" alt="Camisa Dry-Fit">
+                <div class="product-info">
+                    <h3>Camisa Dry-Fit Performance</h3>
+                    <div class="price">R$ 89,90</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
 
-    <h2>Produtos em destaque</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="product-image">👟</div>
-        <div class="card-content">
-          <h3>Tênis Jefinho Speed</h3>
-          <p>Tênis leve para treinos e provas.</p>
-          <div class="price">R$ 399,90</div>
-          <button class="buy" onclick="addToCart()">
-            Adicionar ao carrinho
-          </button>
+            <!-- Produto 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=500&q=80" alt="Garrafa Térmica">
+                <div class="product-info">
+                    <h3>Garrafa Térmica Esportiva</h3>
+                    <div class="price">R$ 59,90</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="product-image">⌚</div>
-        <div class="card-content">
-          <h3>Relógio Runner Pro</h3>
-          <p>Monitore seus treinos e evolução.</p>
-          <div class="price">R$ 599,90</div>
-          <button class="buy" onclick="addToCart()">
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-image">👕</div>
-        <div class="card-content">
-          <h3>Camiseta Jefinho Run</h3>
-          <p>Camiseta esportiva para corrida.</p>
-          <div class="price">R$ 89,90</div>
-          <button class="buy" onclick="addToCart()">
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-image">🧦</div>
-        <div class="card-content">
-          <h3>Meia Performance</h3>
-          <p>Conforto para seus treinos.</p>
-          <div class="price">R$ 39,90</div>
-          <button class="buy" onclick="addToCart()">
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-image">🎒</div>
-        <div class="card-content">
-          <h3>Bolsa Runner</h3>
-          <p>Prática para levar seus acessórios.</p>
-          <div class="price">R$ 119,90</div>
-          <button class="buy" onclick="addToCart()">
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-image">🧢</div>
-        <div class="card-content">
-          <h3>Boné Jefinho Run</h3>
-          <p>Leve, confortável e esportivo.</p>
-          <div class="price">R$ 69,90</div>
-          <button class="buy" onclick="addToCart()">
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <section class="about">
-    <h2>Sobre a Jefinho Run</h2>
-
-    <p>
-      A Jefinho Run nasceu para quem ama correr, superar limites
-      e viver cada quilômetro. Aqui você encontra produtos
-      pensados para corredores.
-    </p>
-  </section>
-
-  <footer>
-    <p>
-      © 2026 <span>Jefinho Run</span> — Todos os direitos reservados.
-    </p>
-  </footer>
-
-  <script>
-    let cart = 0;
-
-    function addToCart() {
-      cart++;
-
-      document.getElementById("cart-count").textContent = cart;
-
-      alert("Produto adicionado ao carrinho! 🏃‍♂️");
-    }
-  </script>
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Jefinho Run. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
