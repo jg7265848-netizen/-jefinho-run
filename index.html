@@ -25,8 +25,8 @@ html {
 }
 
 body {
-    background: #ffffff;
-    color: #111111;
+    background: #f4f4f4;
+    color: #111;
 }
 
 /* =========================
@@ -34,62 +34,85 @@ body {
 ========================= */
 
 header {
-    background: #ffffff;
-    border-bottom: 1px solid #e6e6e6;
-    min-height: 74px;
-    padding: 15px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+
+    min-height: 76px;
+    padding: 14px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 24px;
+    font-weight: 900;
     letter-spacing: 1px;
 }
 
 .logo span {
-    font-weight: 400;
+    font-weight: 300;
+    color: #777;
 }
 
 nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 22px;
 }
 
 nav a {
-    color: #111111;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* =========================
-   CARRINHO HEADER
-========================= */
-
-.cart-button {
-    background: #111111;
-    color: #ffffff;
-    border: none;
-    padding: 11px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
+    color: #111;
+    font-size: 13px;
     font-weight: 700;
 }
 
+nav a:hover {
+    color: #777;
+}
+
+.cart-button {
+    border: none;
+    background: #111;
+    color: white;
+
+    padding: 12px 17px;
+    border-radius: 50px;
+
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.cart-button i {
+    margin-right: 5px;
+}
+
 .cart-count {
-    background: #ffffff;
-    color: #111111;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 22px;
+    height: 22px;
+
+    margin-left: 5px;
+
+    background: white;
+    color: #111;
+
     border-radius: 50%;
-    padding: 2px 7px;
-    margin-left: 4px;
+    font-size: 11px;
 }
 
 /* =========================
@@ -97,56 +120,81 @@ nav a {
 ========================= */
 
 .hero {
-    min-height: 520px;
+    min-height: 650px;
 
     background:
-        linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)),
-        url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1600&q=85');
+        linear-gradient(
+            rgba(0,0,0,0.48),
+            rgba(0,0,0,0.75)
+        ),
+        url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1800&q=90');
 
     background-size: cover;
     background-position: center;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     text-align: center;
-    padding: 30px;
 
-    color: #ffffff;
+    padding: 40px 25px;
+
+    color: white;
 }
 
 .hero-small {
     font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    color: #dddddd;
+    letter-spacing: 5px;
+    font-weight: 800;
+
+    margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 52px;
-    font-weight: 800;
-    margin-bottom: 18px;
+    font-size: 58px;
+    line-height: 1.05;
+    font-weight: 900;
+
+    max-width: 800px;
+
+    margin-bottom: 22px;
 }
 
 .hero p {
-    max-width: 620px;
+    max-width: 650px;
+
+    color: #e5e5e5;
+
     font-size: 17px;
     line-height: 1.7;
-    color: #eeeeee;
-    margin-bottom: 32px;
+
+    margin-bottom: 35px;
 }
 
 .hero-btn {
-    background: #ffffff;
-    color: #111111;
-    padding: 15px 36px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: white;
+    color: #111;
+
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    transition: 0.25s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
 }
 
 /* =========================
@@ -155,137 +203,154 @@ nav a {
 
 .container {
     max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 25px;
+    margin: 0 auto;
+
+    padding: 90px 25px;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
 }
 
 .section-header span {
     font-size: 11px;
     letter-spacing: 4px;
-    color: #777777;
-    text-transform: uppercase;
-}
 
-.section-header h2 {
-    font-size: 34px;
-    margin-top: 12px;
+    color: #777;
+
+    text-transform: uppercase;
     font-weight: 800;
 }
 
+.section-header h2 {
+    font-size: 38px;
+    font-weight: 900;
+
+    margin-top: 12px;
+}
+
 .section-header p {
-    margin-top: 10px;
-    color: #777777;
+    color: #777;
+    margin-top: 12px;
     font-size: 14px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
     gap: 28px;
 }
 
 .product-card {
-    background: #ffffff;
-    border: 1px solid #e3e3e3;
+    background: white;
+
+    border-radius: 18px;
+
     overflow: hidden;
-    border-radius: 8px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.07);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.12);
+}
+
+.product-image {
+    position: relative;
 }
 
 .product-card img {
     width: 100%;
-    height: 290px;
+    height: 310px;
+
     object-fit: cover;
+
     display: block;
 }
 
+.product-tag {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    background: #111;
+    color: white;
+
+    padding: 7px 11px;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
 .product-info {
-    padding: 24px;
+    padding: 25px;
 }
 
 .product-category {
+    color: #888;
+
     font-size: 10px;
     letter-spacing: 2px;
-    color: #888888;
+
     text-transform: uppercase;
-    margin-bottom: 9px;
+
+    margin-bottom: 8px;
 }
 
 .product-info h3 {
-    font-size: 18px;
-    margin-bottom: 13px;
+    font-size: 19px;
+
+    margin-bottom: 12px;
 }
 
 .price {
-    font-size: 21px;
-    font-weight: 800;
+    font-size: 25px;
+    font-weight: 900;
+
     margin-bottom: 20px;
 }
 
 .btn-buy {
-    display: block;
     width: 100%;
-    padding: 14px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    border-radius: 3px;
-    margin-bottom: 9px;
+
+    padding: 15px;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 900;
+
     cursor: pointer;
+
+    transition: 0.25s;
 }
 
 .btn-black {
-    background: #111111;
-    color: #ffffff;
-    border: 1px solid #111111;
+    background: #111;
+    color: white;
+    border: 1px solid #111;
 }
 
-.btn-white {
-    background: #ffffff;
-    color: #111111;
-    border: 1px solid #111111;
-}
-
-/* =========================
-   PIX
-========================= */
-
-.pix-test {
-    background: #f5f5f5;
-    border: 1px solid #dddddd;
-    padding: 14px;
-    margin-top: 15px;
-    display: none;
-}
-
-.pix-test p {
-    font-size: 11px;
-    color: #666666;
-    margin-bottom: 8px;
-}
-
-.pix-code {
-    font-size: 9px;
-    word-break: break-all;
-    color: #333333;
-    line-height: 1.4;
-    margin-bottom: 10px;
-}
-
-.copy-btn {
-    width: 100%;
-    padding: 10px;
-    background: #111111;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
+.btn-black:hover {
+    background: #333;
+    transform: translateY(-2px);
 }
 
 /* =========================
@@ -293,34 +358,58 @@ nav a {
 ========================= */
 
 .benefits {
-    background: #f6f6f6;
-    padding: 65px 25px;
-    margin-top: 90px;
+    background: #111;
+    color: white;
+
+    padding: 75px 25px;
 }
 
 .benefit-grid {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 35px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 40px;
+
     text-align: center;
 }
 
+.benefit {
+    padding: 10px;
+}
+
 .benefit i {
-    font-size: 24px;
-    margin-bottom: 15px;
+    width: 55px;
+    height: 55px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #111;
+
+    font-size: 21px;
+
+    margin-bottom: 17px;
 }
 
 .benefit h3 {
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 15px;
+    margin-bottom: 9px;
 }
 
 .benefit p {
+    color: #aaa;
     font-size: 12px;
-    line-height: 1.5;
-    color: #777777;
+    line-height: 1.6;
 }
 
 /* =========================
@@ -329,14 +418,15 @@ nav a {
 
 .whatsapp-float {
     position: fixed;
-    right: 22px;
-    bottom: 22px;
 
-    width: 56px;
-    height: 56px;
+    right: 20px;
+    bottom: 20px;
 
-    background: #111111;
-    color: #ffffff;
+    width: 58px;
+    height: 58px;
+
+    background: #111;
+    color: white;
 
     border-radius: 50%;
 
@@ -345,9 +435,19 @@ nav a {
     justify-content: center;
 
     text-decoration: none;
+
     font-size: 25px;
 
     z-index: 2000;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.25);
+
+    transition: 0.25s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
 }
 
 /* =========================
@@ -356,9 +456,10 @@ nav a {
 
 .cart-overlay {
     position: fixed;
+
     inset: 0;
 
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.65);
 
     display: none;
 
@@ -375,20 +476,24 @@ nav a {
     right: 0;
     top: 0;
 
-    width: 430px;
+    width: 440px;
     max-width: 100%;
+
     height: 100%;
 
-    background: #ffffff;
+    background: #fff;
 
     display: flex;
     flex-direction: column;
+
+    box-shadow:
+        -10px 0 40px rgba(0,0,0,0.18);
 }
 
 .cart-header {
-    padding: 22px;
+    padding: 23px;
 
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #eee;
 
     display: flex;
     justify-content: space-between;
@@ -397,13 +502,20 @@ nav a {
 
 .cart-header h2 {
     font-size: 21px;
+    font-weight: 900;
 }
 
 .close-cart {
-    border: none;
-    background: none;
+    width: 38px;
+    height: 38px;
 
-    font-size: 25px;
+    border: none;
+
+    background: #f3f3f3;
+
+    border-radius: 50%;
+
+    font-size: 23px;
 
     cursor: pointer;
 }
@@ -418,27 +530,29 @@ nav a {
 
 .empty-cart {
     text-align: center;
-    color: #777777;
 
-    padding: 60px 20px;
+    color: #777;
+
+    padding: 70px 20px;
 }
 
 .cart-item {
-    border-bottom: 1px solid #eeeeee;
-
-    padding: 15px 0;
-
     display: flex;
-    gap: 12px;
+
+    gap: 13px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #eee;
 }
 
 .cart-item img {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
 
     object-fit: cover;
 
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
 .cart-item-info {
@@ -447,60 +561,69 @@ nav a {
 
 .cart-item-info h3 {
     font-size: 14px;
-    margin-bottom: 7px;
+
+    margin-bottom: 6px;
 }
 
 .cart-item-price {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 14px;
 }
 
 .quantity {
     display: flex;
+
     align-items: center;
 
-    gap: 8px;
+    gap: 9px;
 
     margin-top: 10px;
 }
 
 .quantity button {
-    width: 27px;
-    height: 27px;
+    width: 29px;
+    height: 29px;
 
-    border: 1px solid #cccccc;
-    background: #ffffff;
+    border: 1px solid #ddd;
+
+    background: #f8f8f8;
+
+    border-radius: 50%;
 
     cursor: pointer;
 
-    border-radius: 4px;
+    font-size: 17px;
 }
 
 .remove-item {
     border: none;
+
     background: none;
 
-    color: #777777;
+    color: #888;
 
     cursor: pointer;
 
-    font-size: 13px;
+    font-size: 11px;
 
-    margin-top: 7px;
+    margin-top: 8px;
 }
 
 .cart-footer {
-    border-top: 1px solid #dddddd;
+    padding: 22px;
 
-    padding: 20px;
+    border-top: 1px solid #eee;
+
+    background: #fff;
 }
 
 .cart-total {
     display: flex;
+
     justify-content: space-between;
 
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 21px;
+    font-weight: 900;
 
     margin-bottom: 18px;
 }
@@ -508,30 +631,31 @@ nav a {
 .checkout-btn {
     width: 100%;
 
-    padding: 15px;
+    padding: 16px;
 
     border: none;
 
-    background: #111111;
-    color: #ffffff;
+    background: #111;
+    color: white;
 
-    font-size: 14px;
-    font-weight: 700;
+    border-radius: 50px;
 
-    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 900;
 
     cursor: pointer;
 }
 
 /* =========================
-   MODAL FINALIZAÇÃO
+   FINALIZAÇÃO
 ========================= */
 
 .checkout-overlay {
     position: fixed;
+
     inset: 0;
 
-    background: rgba(0,0,0,0.60);
+    background: rgba(0,0,0,0.7);
 
     display: none;
 
@@ -551,50 +675,63 @@ nav a {
     width: 100%;
     max-width: 430px;
 
-    background: #ffffff;
+    background: white;
 
-    padding: 25px;
+    padding: 30px;
 
-    border-radius: 8px;
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
 }
 
 .checkout-box h2 {
+    font-size: 25px;
+
     margin-bottom: 8px;
 }
 
 .checkout-box p {
-    color: #777777;
+    color: #777;
+
     font-size: 13px;
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
 }
 
 .checkout-box input {
     width: 100%;
 
-    padding: 14px;
+    padding: 15px;
 
-    border: 1px solid #cccccc;
+    border: 1px solid #ddd;
 
-    border-radius: 4px;
+    border-radius: 10px;
 
     margin-bottom: 12px;
 
     font-size: 14px;
+
+    outline: none;
+}
+
+.checkout-box input:focus {
+    border-color: #111;
 }
 
 .confirm-btn {
     width: 100%;
 
-    padding: 14px;
+    padding: 15px;
 
     border: none;
 
-    background: #111111;
-    color: #ffffff;
+    background: #111;
+    color: white;
 
-    border-radius: 4px;
+    border-radius: 50px;
 
-    font-weight: 700;
+    font-weight: 900;
 
     cursor: pointer;
 }
@@ -602,15 +739,15 @@ nav a {
 .cancel-btn {
     width: 100%;
 
-    padding: 12px;
+    padding: 13px;
 
-    margin-top: 8px;
+    margin-top: 9px;
 
-    border: 1px solid #cccccc;
+    border: 1px solid #ddd;
 
-    background: #ffffff;
+    background: white;
 
-    border-radius: 4px;
+    border-radius: 50px;
 
     cursor: pointer;
 }
@@ -620,27 +757,26 @@ nav a {
 ========================= */
 
 footer {
-    background: #111111;
-    color: #999999;
+    background: #080808;
+
+    color: #777;
 
     text-align: center;
 
-    padding: 40px 20px;
-
-    margin-top: 80px;
+    padding: 45px 20px;
 }
 
-footer .footer-logo {
-    color: #ffffff;
+.footer-logo {
+    color: white;
 
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 900;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 footer p {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* =========================
@@ -650,59 +786,71 @@ footer p {
 @media (max-width: 700px) {
 
     header {
-        padding: 16px 18px;
+        padding: 14px 17px;
 
         flex-wrap: wrap;
 
-        gap: 14px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 20px;
     }
 
     nav {
         width: 100%;
 
-        justify-content: center;
+        justify-content: space-between;
 
-        gap: 15px;
+        gap: 8px;
     }
 
     nav a {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .cart-button {
-        font-size: 13px;
+        padding: 10px 13px;
+
+        font-size: 11px;
     }
 
     .hero {
-        min-height: 470px;
+        min-height: 560px;
+
+        background-position: center;
     }
 
     .hero h1 {
-        font-size: 38px;
+        font-size: 42px;
     }
 
     .hero p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .container {
-        margin: 60px auto;
+        padding: 70px 18px;
     }
 
     .section-header h2 {
-        font-size: 28px;
+        font-size: 29px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 
     .product-card img {
-        height: 250px;
+        height: 280px;
     }
 
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
+    .benefits {
+        padding: 60px 20px;
+    }
 
-        right: 17px;
-        bottom: 17px;
+    .cart {
+        width: 100%;
     }
 
 }
@@ -711,11 +859,6 @@ footer p {
 </head>
 
 <body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -736,23 +879,23 @@ Produtos
 <a
 href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
 target="_blank">
-
 Contato
-
 </a>
 
 <button
 class="cart-button"
 onclick="abrirCarrinho()">
 
-🛒 Carrinho
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span>
+Carrinho
+</span>
 
 <span
 class="cart-count"
 id="cartCount">
-
 0
-
 </span>
 
 </button>
@@ -762,10 +905,6 @@ id="cartCount">
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
 <div class="hero-small">
@@ -773,7 +912,9 @@ JEFINHO RUN
 </div>
 
 <h1>
-Supere seus limites.
+CORRA.<br>
+SUPERE.<br>
+EVOLUA.
 </h1>
 
 <p>
@@ -781,23 +922,27 @@ Performance, estilo e conforto para acompanhar
 cada quilômetro da sua jornada.
 </p>
 
-<a href="#produtos" class="hero-btn">
+<a
+href="#produtos"
+class="hero-btn">
+
 VER PRODUTOS
+
+<i class="fa-solid fa-arrow-down"></i>
+
 </a>
 
 </section>
 
 
-<!-- =========================
-     PRODUTOS
-========================= -->
-
-<section class="container" id="produtos">
+<section
+class="container"
+id="produtos">
 
 <div class="section-header">
 
 <span>
-Nossa seleção
+JEFINHO RUN
 </span>
 
 <h2>
@@ -805,7 +950,7 @@ Produtos em destaque
 </h2>
 
 <p>
-Equipamentos escolhidos para quem leva a corrida a sério.
+Equipamentos para quem não para de evoluir.
 </p>
 
 </div>
@@ -814,18 +959,24 @@ Equipamentos escolhidos para quem leva a corrida a sério.
 <div class="product-grid">
 
 
-<!-- CAMISA -->
-
 <div class="product-card">
+
+<div class="product-image">
 
 <img
 src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
 alt="Camisa Dry-Fit Performance">
 
+<div class="product-tag">
+PERFORMANCE
+</div>
+
+</div>
+
 <div class="product-info">
 
 <div class="product-category">
-Performance
+Corrida
 </div>
 
 <h3>
@@ -844,7 +995,8 @@ onclick="adicionarCarrinho(
 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85'
 )">
 
-🛒 ADICIONAR AO CARRINHO
+<i class="fa-solid fa-cart-plus"></i>
+ADICIONAR AO CARRINHO
 
 </button>
 
@@ -853,18 +1005,24 @@ onclick="adicionarCarrinho(
 </div>
 
 
-<!-- TÊNIS -->
-
 <div class="product-card">
+
+<div class="product-image">
 
 <img
 src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
-alt="Tênis de Corrida">
+alt="Tênis de Corrida Pro">
+
+<div class="product-tag">
+RUNNING
+</div>
+
+</div>
 
 <div class="product-info">
 
 <div class="product-category">
-Running
+Performance
 </div>
 
 <h3>
@@ -883,7 +1041,8 @@ onclick="adicionarCarrinho(
 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85'
 )">
 
-🛒 ADICIONAR AO CARRINHO
+<i class="fa-solid fa-cart-plus"></i>
+ADICIONAR AO CARRINHO
 
 </button>
 
@@ -892,18 +1051,24 @@ onclick="adicionarCarrinho(
 </div>
 
 
-<!-- GARRAFA -->
-
 <div class="product-card">
+
+<div class="product-image">
 
 <img
 src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
 alt="Garrafa Térmica Esportiva">
 
+<div class="product-tag">
+ACESSÓRIO
+</div>
+
+</div>
+
 <div class="product-info">
 
 <div class="product-category">
-Acessórios
+Hidratação
 </div>
 
 <h3>
@@ -922,7 +1087,8 @@ onclick="adicionarCarrinho(
 'https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85'
 )">
 
-🛒 ADICIONAR AO CARRINHO
+<i class="fa-solid fa-cart-plus"></i>
+ADICIONAR AO CARRINHO
 
 </button>
 
@@ -935,14 +1101,9 @@ onclick="adicionarCarrinho(
 </section>
 
 
-<!-- =========================
-     BENEFÍCIOS
-========================= -->
-
 <section class="benefits">
 
 <div class="benefit-grid">
-
 
 <div class="benefit">
 
@@ -953,7 +1114,7 @@ Performance
 </h3>
 
 <p>
-Produtos pensados para acompanhar seus treinos.
+Produtos escolhidos para acompanhar seus treinos e sua evolução.
 </p>
 
 </div>
@@ -968,7 +1129,7 @@ Compra segura
 </h3>
 
 <p>
-Pagamento realizado através da InfinitePay.
+Seu pedido é registrado com segurança através do nosso sistema.
 </p>
 
 </div>
@@ -979,11 +1140,11 @@ Pagamento realizado através da InfinitePay.
 <i class="fa-solid fa-headset"></i>
 
 <h3>
-Atendimento
+Atendimento direto
 </h3>
 
 <p>
-Fale diretamente conosco pelo WhatsApp.
+Precisou de ajuda? Fale diretamente com a Jefinho Run.
 </p>
 
 </div>
@@ -992,10 +1153,6 @@ Fale diretamente conosco pelo WhatsApp.
 
 </section>
 
-
-<!-- =========================
-     WHATSAPP
-========================= -->
 
 <a
 href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
@@ -1007,10 +1164,6 @@ target="_blank">
 </a>
 
 
-<!-- =========================
-     CARRINHO
-========================= -->
-
 <div
 class="cart-overlay"
 id="cartOverlay"
@@ -1021,7 +1174,8 @@ onclick="fecharCarrinhoFora(event)">
 <div class="cart-header">
 
 <h2>
-🛒 Meu Carrinho
+<i class="fa-solid fa-bag-shopping"></i>
+Meu Carrinho
 </h2>
 
 <button
@@ -1037,7 +1191,6 @@ onclick="fecharCarrinho()">
 <div
 class="cart-items"
 id="cartItems">
-
 </div>
 
 
@@ -1055,12 +1208,12 @@ R$ 0,00
 
 </div>
 
-
 <button
 class="checkout-btn"
 onclick="abrirFinalizacao()">
 
 FINALIZAR PEDIDO
+<i class="fa-solid fa-arrow-right"></i>
 
 </button>
 
@@ -1070,10 +1223,6 @@ FINALIZAR PEDIDO
 
 </div>
 
-
-<!-- =========================
-     FINALIZAÇÃO
-========================= -->
 
 <div
 class="checkout-overlay"
@@ -1086,21 +1235,18 @@ Finalizar pedido
 </h2>
 
 <p>
-Informe seus dados para registrar o pedido.
+Informe seus dados para registrar seu pedido.
 </p>
-
 
 <input
 type="text"
 id="clienteNome"
 placeholder="Seu nome">
 
-
 <input
 type="tel"
 id="clienteWhatsapp"
 placeholder="Seu WhatsApp">
-
 
 <button
 class="confirm-btn"
@@ -1109,7 +1255,6 @@ onclick="finalizarPedido()">
 CONFIRMAR PEDIDO
 
 </button>
-
 
 <button
 class="cancel-btn"
@@ -1139,10 +1284,6 @@ JEFINHO RUN
 
 <script>
 
-/* =========================
-   SUPABASE
-========================= */
-
 const SUPABASE_URL =
 "https://xlqgxzgblawjjabyraki.supabase.co";
 
@@ -1155,28 +1296,15 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-
-/* =========================
-   WHATSAPP DA LOJA
-========================= */
-
 const WHATSAPP_LOJA =
 "5531995498420";
 
-
-/* =========================
-   CARRINHO
-========================= */
 
 let carrinho =
 JSON.parse(
 localStorage.getItem("jefinhoCarrinho")
 ) || [];
 
-
-/* =========================
-   SALVAR CARRINHO
-========================= */
 
 function salvarCarrinho() {
 
@@ -1187,10 +1315,6 @@ function salvarCarrinho() {
 
 }
 
-
-/* =========================
-   ADICIONAR PRODUTO
-========================= */
 
 function adicionarCarrinho(
     nome,
@@ -1203,7 +1327,6 @@ function adicionarCarrinho(
             item => item.nome === nome
         );
 
-
     if (existente) {
 
         existente.quantidade++;
@@ -1213,17 +1336,13 @@ function adicionarCarrinho(
         carrinho.push({
 
             nome: nome,
-
             preco: preco,
-
             imagem: imagem,
-
             quantidade: 1
 
         });
 
     }
-
 
     salvarCarrinho();
 
@@ -1231,17 +1350,8 @@ function adicionarCarrinho(
 
     abrirCarrinho();
 
-
-    alert(
-        "✅ Produto adicionado ao carrinho!"
-    );
-
 }
 
-
-/* =========================
-   ATUALIZAR CARRINHO
-========================= */
 
 function atualizarCarrinho() {
 
@@ -1283,14 +1393,30 @@ function atualizarCarrinho() {
     if (carrinho.length === 0) {
 
         container.innerHTML = `
+
             <div class="empty-cart">
-                <p>🛒 Seu carrinho está vazio.</p>
+
+                <i
+                class="fa-solid fa-cart-shopping"
+                style="font-size:40px;margin-bottom:15px;color:#ccc;">
+                </i>
+
+                <p>
+                Seu carrinho está vazio.
+                </p>
+
                 <br>
-                <p>Adicione algum produto para começar.</p>
+
+                <p>
+                Adicione produtos para começar.
+                </p>
+
             </div>
+
         `;
 
         return;
+
     }
 
 
@@ -1345,14 +1471,14 @@ function atualizarCarrinho() {
                     class="remove-item"
                     onclick="removerProduto(${index})">
 
-                    🗑️ Remover
+                    <i class="fa-solid fa-trash"></i>
+                    Remover
 
                     </button>
 
                 </div>
 
             `;
-
 
             container.appendChild(div);
 
@@ -1361,10 +1487,6 @@ function atualizarCarrinho() {
 
 }
 
-
-/* =========================
-   ALTERAR QUANTIDADE
-========================= */
 
 function alterarQuantidade(
     index,
@@ -1391,10 +1513,6 @@ function alterarQuantidade(
 }
 
 
-/* =========================
-   REMOVER
-========================= */
-
 function removerProduto(index) {
 
     carrinho.splice(index, 1);
@@ -1406,10 +1524,6 @@ function removerProduto(index) {
 }
 
 
-/* =========================
-   ABRIR CARRINHO
-========================= */
-
 function abrirCarrinho() {
 
     document
@@ -1419,10 +1533,6 @@ function abrirCarrinho() {
 }
 
 
-/* =========================
-   FECHAR CARRINHO
-========================= */
-
 function fecharCarrinho() {
 
     document
@@ -1431,10 +1541,6 @@ function fecharCarrinho() {
 
 }
 
-
-/* =========================
-   FECHAR CLICANDO FORA
-========================= */
 
 function fecharCarrinhoFora(event) {
 
@@ -1449,10 +1555,6 @@ function fecharCarrinhoFora(event) {
 
 }
 
-
-/* =========================
-   FINALIZAÇÃO
-========================= */
 
 function abrirFinalizacao() {
 
@@ -1483,10 +1585,6 @@ function fecharFinalizacao() {
 }
 
 
-/* =========================
-   FORMATAR MOEDA
-========================= */
-
 function formatarMoeda(valor) {
 
     return valor.toLocaleString(
@@ -1499,10 +1597,6 @@ function formatarMoeda(valor) {
 
 }
 
-
-/* =========================
-   GERAR PEDIDO
-========================= */
 
 function gerarNumeroPedido() {
 
@@ -1531,10 +1625,6 @@ function gerarNumeroPedido() {
 
 }
 
-
-/* =========================
-   FINALIZAR PEDIDO
-========================= */
 
 async function finalizarPedido() {
 
@@ -1674,10 +1764,6 @@ async function finalizarPedido() {
         }
 
 
-        /* =========================
-           MENSAGEM WHATSAPP
-        ========================= */
-
         let mensagem =
             "Olá! Fiz um pedido pelo site Jefinho Run.%0A%0A";
 
@@ -1723,10 +1809,6 @@ async function finalizarPedido() {
             );
 
 
-        /* =========================
-           LIMPAR CARRINHO
-        ========================= */
-
         carrinho = [];
 
         salvarCarrinho();
@@ -1737,10 +1819,6 @@ async function finalizarPedido() {
 
         fecharCarrinho();
 
-
-        /* =========================
-           CONFIRMAÇÃO
-        ========================= */
 
         alert(
             "✅ PEDIDO REGISTRADO!\n\n" +
@@ -1753,10 +1831,6 @@ async function finalizarPedido() {
             "Agora você será direcionado para o WhatsApp."
         );
 
-
-        /* =========================
-           WHATSAPP
-        ========================= */
 
         window.open(
             "https://wa.me/" +
@@ -1784,10 +1858,6 @@ async function finalizarPedido() {
 
 }
 
-
-/* =========================
-   INICIAR
-========================= */
 
 atualizarCarrinho();
 
