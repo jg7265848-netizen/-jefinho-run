@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -29,7 +30,9 @@ body {
     color: #111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header {
     position: sticky;
@@ -97,7 +100,9 @@ nav a:hover {
     font-size: 11px;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 650px;
@@ -107,14 +112,18 @@ nav a:hover {
             rgba(0,0,0,0.75)
         ),
         url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1800&q=90');
+
     background-size: cover;
     background-position: center;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     text-align: center;
     padding: 40px 25px;
+
     color: white;
 }
 
@@ -154,7 +163,9 @@ nav a:hover {
     font-weight: 900;
 }
 
-/* PRODUTOS */
+/* =========================
+   PRODUTOS
+========================= */
 
 .container {
     max-width: 1200px;
@@ -268,7 +279,9 @@ nav a:hover {
     cursor: not-allowed;
 }
 
-/* BENEFÍCIOS */
+/* =========================
+   BENEFÍCIOS
+========================= */
 
 .benefits {
     background: #111;
@@ -309,7 +322,9 @@ nav a:hover {
     line-height: 1.6;
 }
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
 
 .whatsapp-float {
     position: fixed;
@@ -328,7 +343,9 @@ nav a:hover {
     z-index: 2000;
 }
 
-/* CARRINHO */
+/* =========================
+   CARRINHO
+========================= */
 
 .cart-overlay {
     position: fixed;
@@ -450,6 +467,87 @@ nav a:hover {
     margin-bottom: 18px;
 }
 
+/* =========================
+   FRETE
+========================= */
+
+.freight-box {
+    background: #f5f5f5;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+}
+
+.freight-title {
+    font-size: 14px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.freight-subtitle {
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.cep-row {
+    display: flex;
+    gap: 8px;
+}
+
+.cep-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 50px;
+    padding: 13px 15px;
+    font-size: 13px;
+    outline: none;
+}
+
+.cep-input:focus {
+    border-color: #111;
+}
+
+.freight-btn {
+    border: none;
+    background: #111;
+    color: white;
+    border-radius: 50px;
+    padding: 13px 15px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.freight-result {
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.freight-result.success {
+    color: #111;
+}
+
+.freight-result.error {
+    color: #c00;
+}
+
+.freight-loading {
+    color: #777;
+}
+
+.freight-value {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 13px;
+    font-weight: 800;
+}
+
 .checkout-btn {
     width: 100%;
     padding: 16px;
@@ -462,7 +560,9 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* CHECKOUT */
+/* =========================
+   CHECKOUT
+========================= */
 
 .checkout-overlay {
     position: fixed;
@@ -486,6 +586,8 @@ nav a:hover {
     padding: 28px;
     border-radius: 20px;
     text-align: center;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .checkout-box h2 {
@@ -535,7 +637,9 @@ nav a:hover {
     font-weight: 700;
 }
 
-/* MENSAGEM */
+/* =========================
+   MENSAGEM
+========================= */
 
 .order-message-overlay {
     position: fixed;
@@ -601,19 +705,6 @@ nav a:hover {
     font-size: 13px;
 }
 
-.order-whatsapp-btn {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background: #25D366;
-    color: white;
-    border-radius: 50px;
-    font-weight: 900;
-    cursor: pointer;
-    font-size: 13px;
-    margin-bottom: 8px;
-}
-
 .order-close-btn {
     width: 100%;
     padding: 13px;
@@ -625,7 +716,9 @@ nav a:hover {
     font-weight: 700;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #080808;
@@ -645,7 +738,9 @@ footer p {
     font-size: 11px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
 
@@ -705,12 +800,53 @@ footer p {
     .cart {
         width: 100%;
     }
+
+    .cep-row {
+        flex-direction: column;
+    }
+
+    .freight-btn {
+        width: 100%;
+    }
+
 }
 
+/* =========================
+   CONFIGURAÇÃO DE FRETE
+========================= */
+
+/*
+    PESO PADRÃO:
+    1.000 gramas = 1 kg
+
+    DIMENSÕES:
+    30 cm comprimento
+    20 cm largura
+    15 cm altura
+
+    IMPORTANTE:
+    A API oficial dos Correios precisa de
+    credenciais/token.
+
+    Quando configurarmos a API, coloque
+    o endereço da função do Supabase aqui.
+
+    Exemplo:
+
+    const FRETE_API_URL =
+    "https://SEU-PROJETO.supabase.co/functions/v1/calcular-frete";
+
+*/
+
 </style>
+
 </head>
 
 <body>
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -720,25 +856,38 @@ footer p {
 
     <nav>
 
-        <a href="#">Início</a>
+        <a href="#">
+            Início
+        </a>
 
         <a href="#produtos">
             Produtos
         </a>
 
-        <a href="https://wa.me/5531995498420?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
-           target="_blank">
+        <a
+        href="https://wa.me/5531995498420?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+        target="_blank">
+
             Contato
+
         </a>
 
-        <button class="cart-button" onclick="abrirCarrinho()">
+        <button
+        class="cart-button"
+        onclick="abrirCarrinho()">
 
             <i class="fa-solid fa-cart-shopping"></i>
 
-            <span>Carrinho</span>
+            <span>
+                Carrinho
+            </span>
 
-            <span class="cart-count" id="cartCount">
+            <span
+            class="cart-count"
+            id="cartCount">
+
                 0
+
             </span>
 
         </button>
@@ -747,6 +896,10 @@ footer p {
 
 </header>
 
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -764,15 +917,26 @@ footer p {
         Performance, estilo e conforto para acompanhar cada quilômetro da sua jornada.
     </p>
 
-    <a href="#produtos" class="hero-btn">
+    <a
+    href="#produtos"
+    class="hero-btn">
+
         VER PRODUTOS
+
         <i class="fa-solid fa-arrow-down"></i>
+
     </a>
 
 </section>
 
 
-<section class="container" id="produtos">
+<!-- =========================
+     PRODUTOS
+========================= -->
+
+<section
+class="container"
+id="produtos">
 
     <div class="section-header">
 
@@ -834,6 +998,7 @@ footer p {
                 )">
 
                     <i class="fa-solid fa-cart-plus"></i>
+
                     ADICIONAR AO CARRINHO
 
                 </button>
@@ -883,6 +1048,7 @@ footer p {
                 )">
 
                     <i class="fa-solid fa-cart-plus"></i>
+
                     ADICIONAR AO CARRINHO
 
                 </button>
@@ -934,11 +1100,14 @@ footer p {
 
         </div>
 
-
     </div>
 
 </section>
 
+
+<!-- =========================
+     BENEFÍCIOS
+========================= -->
 
 <section class="benefits">
 
@@ -993,6 +1162,10 @@ footer p {
 </section>
 
 
+<!-- =========================
+     WHATSAPP
+========================= -->
+
 <a
 href="https://wa.me/5531995498420?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
 class="whatsapp-float"
@@ -1003,7 +1176,9 @@ target="_blank">
 </a>
 
 
-<!-- CARRINHO -->
+<!-- =========================
+     CARRINHO
+========================= -->
 
 <div
 class="cart-overlay"
@@ -1012,11 +1187,15 @@ onclick="fecharCarrinhoFora(event)">
 
     <div class="cart">
 
+
         <div class="cart-header">
 
             <h2>
+
                 <i class="fa-solid fa-bag-shopping"></i>
+
                 Meu Carrinho
+
             </h2>
 
             <button
@@ -1033,10 +1212,87 @@ onclick="fecharCarrinhoFora(event)">
         <div
         class="cart-items"
         id="cartItems">
+
         </div>
 
 
         <div class="cart-footer">
+
+
+            <!-- FRETE -->
+
+            <div class="freight-box">
+
+                <div class="freight-title">
+
+                    <i class="fa-solid fa-truck"></i>
+
+                    Calcular frete
+
+                </div>
+
+                <div class="freight-subtitle">
+
+                    Informe seu CEP para calcular o envio.
+
+                    <br>
+
+                    Peso considerado:
+                    <strong>1 kg</strong>
+
+                </div>
+
+
+                <div class="cep-row">
+
+                    <input
+                    type="text"
+                    id="cepInput"
+                    class="cep-input"
+                    placeholder="Digite seu CEP"
+                    maxlength="9"
+                    inputmode="numeric"
+                    oninput="formatarCEP(this)">
+
+                    <button
+                    class="freight-btn"
+                    onclick="calcularFrete()">
+
+                        CALCULAR
+
+                    </button>
+
+                </div>
+
+
+                <div
+                id="freightResult"
+                class="freight-result">
+
+                    Informe seu CEP para continuar.
+
+                </div>
+
+
+                <div
+                id="freightValue"
+                class="freight-value"
+                style="display:none;">
+
+                    <span>
+                        Frete
+                    </span>
+
+                    <strong id="freightAmount">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL -->
 
             <div class="cart-total">
 
@@ -1056,6 +1312,7 @@ onclick="fecharCarrinhoFora(event)">
             onclick="abrirFinalizacao()">
 
                 PAGAR COM PAGBANK
+
                 <i class="fa-solid fa-arrow-right"></i>
 
             </button>
@@ -1067,13 +1324,16 @@ onclick="fecharCarrinhoFora(event)">
 </div>
 
 
-<!-- CHECKOUT -->
+<!-- =========================
+     CHECKOUT
+========================= -->
 
 <div
 class="checkout-overlay"
 id="checkoutOverlay">
 
     <div class="checkout-box">
+
 
         <h2>
             Finalizar Pedido
@@ -1087,6 +1347,7 @@ id="checkoutOverlay">
         <div
         class="payment-summary"
         id="paymentSummary">
+
         </div>
 
 
@@ -1095,6 +1356,7 @@ id="checkoutOverlay">
         onclick="pagarPagBank()">
 
             <i class="fa-solid fa-lock"></i>
+
             CONTINUAR PARA O PAGBANK
 
         </button>
@@ -1113,71 +1375,9 @@ id="checkoutOverlay">
 </div>
 
 
-<!-- SUCESSO DO REGISTRO -->
-
-<div
-class="order-message-overlay"
-id="orderSuccess">
-
-    <div class="order-message-box">
-
-        <div class="order-icon">
-
-            <i class="fa-solid fa-check"></i>
-
-        </div>
-
-        <h2>
-            Pedido registrado!
-        </h2>
-
-        <p>
-            Seu pedido foi registrado e você será encaminhado para o PagBank.
-        </p>
-
-
-        <div class="order-details">
-
-            <div>
-
-                <span>
-                    Pedido
-                </span>
-
-                <strong id="successOrderNumber">
-                    JF-000000
-                </strong>
-
-            </div>
-
-
-            <div>
-
-                <span>
-                    Total
-                </span>
-
-                <strong id="successOrderTotal">
-                    R$ 0,00
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <button
-        class="order-close-btn"
-        onclick="fecharMensagemSucesso()">
-
-            CONTINUAR
-
-        </button>
-
-    </div>
-
-</div>
-
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1228,6 +1428,49 @@ const WHATSAPP_LOJA =
 
 
 /* =========================
+   CONFIGURAÇÃO DA EMBALAGEM
+========================= */
+
+const PESO_PADRAO_GRAMAS = 1000;
+
+const COMPRIMENTO_CM = 30;
+
+const LARGURA_CM = 20;
+
+const ALTURA_CM = 15;
+
+
+/*
+    CEP DE ORIGEM
+
+    IMPORTANTE:
+
+    COLOQUE AQUI O CEP DE ONDE
+    VOCÊ VAI ENVIAR AS ENCOMENDAS.
+
+    Exemplo:
+
+    const CEP_ORIGEM = "35460000";
+
+*/
+
+const CEP_ORIGEM = "";
+
+
+/*
+    ENDPOINT DO FRETE
+
+    Deixaremos vazio até criarmos
+    a função segura no Supabase.
+
+    NÃO coloque o token dos Correios
+    diretamente neste HTML.
+*/
+
+const FRETE_API_URL = "";
+
+
+/* =========================
    CARRINHO
 ========================= */
 
@@ -1240,6 +1483,14 @@ JSON.parse(
 let numeroPedidoAtual = "";
 
 
+/* =========================
+   FRETE
+========================= */
+
+let freteAtual = 0;
+
+let cepAtual = "";
+
 
 function salvarCarrinho() {
 
@@ -1249,7 +1500,6 @@ function salvarCarrinho() {
     );
 
 }
-
 
 
 function adicionarCarrinho(
@@ -1297,6 +1547,9 @@ function adicionarCarrinho(
 }
 
 
+/* =========================
+   ATUALIZAR CARRINHO
+========================= */
 
 function atualizarCarrinho() {
 
@@ -1312,7 +1565,7 @@ function atualizarCarrinho() {
 
     let quantidadeTotal = 0;
 
-    let total = 0;
+    let totalProdutos = 0;
 
 
     carrinho.forEach(item => {
@@ -1320,7 +1573,7 @@ function atualizarCarrinho() {
         quantidadeTotal +=
         item.quantidade;
 
-        total +=
+        totalProdutos +=
         item.preco *
         item.quantidade;
 
@@ -1330,8 +1583,13 @@ function atualizarCarrinho() {
     contador.innerText =
     quantidadeTotal;
 
+
+    const totalFinal =
+    totalProdutos + freteAtual;
+
+
     totalElement.innerText =
-    formatarMoeda(total);
+    formatarMoeda(totalFinal);
 
 
     if (carrinho.length === 0) {
@@ -1342,7 +1600,10 @@ function atualizarCarrinho() {
 
                 <i
                 class="fa-solid fa-cart-shopping"
-                style="font-size:40px;margin-bottom:15px;color:#ccc;">
+                style="
+                font-size:40px;
+                margin-bottom:15px;
+                color:#ccc;">
                 </i>
 
                 <p>
@@ -1373,6 +1634,7 @@ function atualizarCarrinho() {
         const div =
         document.createElement("div");
 
+
         div.className =
         "cart-item";
 
@@ -1397,7 +1659,9 @@ function atualizarCarrinho() {
 
                     <button
                     onclick="alterarQuantidade(${index}, -1)">
+
                         −
+
                     </button>
 
                     <strong>
@@ -1406,7 +1670,9 @@ function atualizarCarrinho() {
 
                     <button
                     onclick="alterarQuantidade(${index}, 1)">
+
                         +
+
                     </button>
 
                 </div>
@@ -1416,6 +1682,7 @@ function atualizarCarrinho() {
                 onclick="removerProduto(${index})">
 
                     <i class="fa-solid fa-trash"></i>
+
                     Remover
 
                 </button>
@@ -1432,6 +1699,9 @@ function atualizarCarrinho() {
 }
 
 
+/* =========================
+   QUANTIDADE
+========================= */
 
 function alterarQuantidade(
     index,
@@ -1451,6 +1721,27 @@ function alterarQuantidade(
     }
 
 
+    /*
+        Se o carrinho mudou,
+        recalcularemos o frete.
+    */
+
+    freteAtual = 0;
+
+    cepAtual = "";
+
+
+    document.getElementById(
+        "freightValue"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "freightResult"
+    ).innerHTML =
+    "Informe seu CEP para calcular o frete.";
+
+
     salvarCarrinho();
 
     atualizarCarrinho();
@@ -1458,11 +1749,31 @@ function alterarQuantidade(
 }
 
 
+/* =========================
+   REMOVER
+========================= */
 
 function removerProduto(index) {
 
     carrinho.splice(index, 1);
 
+
+    freteAtual = 0;
+
+    cepAtual = "";
+
+
+    document.getElementById(
+        "freightValue"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "freightResult"
+    ).innerHTML =
+    "Informe seu CEP para calcular o frete.";
+
+
     salvarCarrinho();
 
     atualizarCarrinho();
@@ -1470,6 +1781,9 @@ function removerProduto(index) {
 }
 
 
+/* =========================
+   ABRIR CARRINHO
+========================= */
 
 function abrirCarrinho() {
 
@@ -1481,6 +1795,9 @@ function abrirCarrinho() {
 }
 
 
+/* =========================
+   FECHAR CARRINHO
+========================= */
 
 function fecharCarrinho() {
 
@@ -1490,7 +1807,6 @@ function fecharCarrinho() {
     .remove("active");
 
 }
-
 
 
 function fecharCarrinhoFora(event) {
@@ -1507,6 +1823,9 @@ function fecharCarrinhoFora(event) {
 }
 
 
+/* =========================
+   MOEDA
+========================= */
 
 function formatarMoeda(valor) {
 
@@ -1520,6 +1839,281 @@ function formatarMoeda(valor) {
 
 }
 
+
+/* =========================
+   CEP
+========================= */
+
+function formatarCEP(input) {
+
+    let valor =
+    input.value.replace(/\D/g, "");
+
+
+    if (valor.length > 5) {
+
+        valor =
+        valor.substring(0,5)
+        + "-"
+        + valor.substring(5,8);
+
+    }
+
+
+    input.value =
+    valor;
+
+}
+
+
+function limparCEP(cep) {
+
+    return cep
+    .replace(/\D/g, "")
+    .substring(0,8);
+
+}
+
+
+/* =========================
+   CALCULAR FRETE
+========================= */
+
+async function calcularFrete() {
+
+    const input =
+    document.getElementById("cepInput");
+
+
+    const resultado =
+    document.getElementById("freightResult");
+
+
+    const valorFrete =
+    document.getElementById("freightValue");
+
+
+    const cep =
+    limparCEP(input.value);
+
+
+    if (cep.length !== 8) {
+
+        resultado.className =
+        "freight-result error";
+
+        resultado.innerHTML =
+        "❌ Digite um CEP válido.";
+
+        valorFrete.style.display =
+        "none";
+
+        return;
+
+    }
+
+
+    if (carrinho.length === 0) {
+
+        resultado.className =
+        "freight-result error";
+
+        resultado.innerHTML =
+        "❌ Adicione um produto ao carrinho.";
+
+        return;
+
+    }
+
+
+    /*
+        Ainda não existe endpoint configurado.
+
+        Isso evita apresentar um preço
+        falso de Correios ao cliente.
+    */
+
+    if (!FRETE_API_URL) {
+
+        resultado.className =
+        "freight-result";
+
+        resultado.innerHTML = `
+
+            <strong>
+                📦 CEP recebido: ${cep.substring(0,5)}-${cep.substring(5)}
+            </strong>
+
+            <br><br>
+
+            O cálculo oficial dos Correios
+            será conectado nesta etapa.
+
+            <br><br>
+
+            Peso:
+            <strong>1 kg</strong>
+
+            <br>
+
+            Embalagem:
+            <strong>
+                30 × 20 × 15 cm
+            </strong>
+
+        `;
+
+        valorFrete.style.display =
+        "none";
+
+        /*
+            Guardamos o CEP para usar
+            quando a API for conectada.
+        */
+
+        cepAtual = cep;
+
+        return;
+
+    }
+
+
+    resultado.className =
+    "freight-result freight-loading";
+
+    resultado.innerHTML =
+    "⏳ Calculando frete...";
+
+
+    try {
+
+        const resposta =
+        await fetch(
+            FRETE_API_URL,
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                    "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    cep_origem:
+                    CEP_ORIGEM,
+
+                    cep_destino:
+                    cep,
+
+                    peso:
+                    PESO_PADRAO_GRAMAS,
+
+                    comprimento:
+                    COMPRIMENTO_CM,
+
+                    largura:
+                    LARGURA_CM,
+
+                    altura:
+                    ALTURA_CM
+
+                })
+
+            }
+        );
+
+
+        const dados =
+        await resposta.json();
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                dados.message ||
+                "Erro no cálculo do frete."
+            );
+
+        }
+
+
+        /*
+            Esperamos que a função
+            retorne:
+
+            {
+                frete: 25.90,
+                servico: "PAC",
+                prazo: 5
+            }
+        */
+
+
+        freteAtual =
+        Number(dados.frete);
+
+
+        cepAtual =
+        cep;
+
+
+        resultado.className =
+        "freight-result success";
+
+
+        resultado.innerHTML = `
+
+            <strong>
+                🚚 ${dados.servico || "Correios"}
+            </strong>
+
+            ${
+                dados.prazo
+                ? `<br>Prazo estimado: ${dados.prazo} dias úteis`
+                : ""
+            }
+
+        `;
+
+
+        document.getElementById(
+            "freightAmount"
+        ).innerText =
+        formatarMoeda(freteAtual);
+
+
+        valorFrete.style.display =
+        "flex";
+
+
+        atualizarCarrinho();
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro no frete:",
+            erro
+        );
+
+
+        resultado.className =
+        "freight-result error";
+
+
+        resultado.innerHTML =
+        "❌ Não foi possível calcular o frete. Tente novamente.";
+
+        valorFrete.style.display =
+        "none";
+
+    }
+
+}
 
 
 /* =========================
@@ -1562,7 +2156,6 @@ function gerarNumeroPedido() {
 }
 
 
-
 /* =========================
    FINALIZAÇÃO
 ========================= */
@@ -1582,11 +2175,22 @@ function abrirFinalizacao() {
     }
 
 
-    fecharCarrinho();
+    /*
+        Exige CEP/frete antes do pagamento.
+    */
+
+    if (!cepAtual) {
+
+        alert(
+            "📍 Informe seu CEP e calcule o frete antes de continuar."
+        );
+
+        return;
+
+    }
 
 
-    let total = 0;
-
+    let totalProdutos = 0;
 
     let html = "";
 
@@ -1598,7 +2202,8 @@ function abrirFinalizacao() {
         item.quantidade;
 
 
-        total += subtotal;
+        totalProdutos +=
+        subtotal;
 
 
         html += `
@@ -1627,6 +2232,32 @@ function abrirFinalizacao() {
         border-top:1px solid #ddd;
         margin-top:10px;
         padding-top:10px;
+        ">
+
+            <span>
+                Frete
+            </span>
+
+            <strong>
+                ${formatarMoeda(freteAtual)}
+            </strong>
+
+        </div>
+
+    `;
+
+
+    const totalFinal =
+    totalProdutos + freteAtual;
+
+
+    html += `
+
+        <div
+        style="
+        border-top:1px solid #ddd;
+        margin-top:10px;
+        padding-top:10px;
         font-size:16px;
         ">
 
@@ -1635,7 +2266,7 @@ function abrirFinalizacao() {
             </strong>
 
             <strong>
-                ${formatarMoeda(total)}
+                ${formatarMoeda(totalFinal)}
             </strong>
 
         </div>
@@ -1645,7 +2276,8 @@ function abrirFinalizacao() {
 
     document.getElementById(
         "paymentSummary"
-    ).innerHTML = html;
+    ).innerHTML =
+    html;
 
 
     document.getElementById(
@@ -1655,6 +2287,9 @@ function abrirFinalizacao() {
 }
 
 
+/* =========================
+   FECHAR FINALIZAÇÃO
+========================= */
 
 function fecharFinalizacao() {
 
@@ -1663,7 +2298,6 @@ function fecharFinalizacao() {
     ).classList.remove("active");
 
 }
-
 
 
 /* =========================
@@ -1685,7 +2319,18 @@ async function pagarPagBank() {
     }
 
 
-    let total = 0;
+    if (!cepAtual) {
+
+        alert(
+            "Informe o CEP e calcule o frete."
+        );
+
+        return;
+
+    }
+
+
+    let totalProdutos = 0;
 
 
     const produtos =
@@ -1696,7 +2341,8 @@ async function pagarPagBank() {
         item.quantidade;
 
 
-        total += subtotal;
+        totalProdutos +=
+        subtotal;
 
 
         return (
@@ -1708,6 +2354,10 @@ async function pagarPagBank() {
         );
 
     }).join(" | ");
+
+
+    const totalFinal =
+    totalProdutos + freteAtual;
 
 
     numeroPedidoAtual =
@@ -1729,7 +2379,7 @@ async function pagarPagBank() {
         produtos,
 
         valor_total:
-        total,
+        totalFinal,
 
         status:
         "pendente",
@@ -1738,6 +2388,19 @@ async function pagarPagBank() {
         new Date().toISOString()
 
     };
+
+
+    /*
+        OBSERVAÇÃO:
+
+        Se a tabela pedidos ainda não possuir
+        as colunas "cep" e "frete",
+        NÃO enviamos esses campos ainda,
+        para evitar erro no Supabase.
+
+        Vamos adicionar essas colunas
+        quando configurarmos o banco.
+    */
 
 
     try {
@@ -1766,20 +2429,16 @@ async function pagarPagBank() {
         }
 
 
-        /*
-        Pedido salvo como PENDENTE.
-        Agora o cliente vai para o PagBank.
-        */
-
-
         document.getElementById(
             "checkoutOverlay"
         ).classList.remove("active");
 
 
         /*
-        Mantém o carrinho até o usuário
-        retornar do pagamento.
+            O pedido fica como PENDENTE.
+
+            Depois o cliente vai para
+            o PagBank.
         */
 
 
@@ -1802,22 +2461,6 @@ async function pagarPagBank() {
     }
 
 }
-
-
-
-/* =========================
-   SUCESSO
-========================= */
-
-function fecharMensagemSucesso() {
-
-    document
-    .getElementById("orderSuccess")
-    .classList
-    .remove("active");
-
-}
-
 
 
 /* =========================
