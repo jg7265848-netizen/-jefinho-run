@@ -816,26 +816,18 @@ footer p {
 ========================= */
 
 /*
-    PESO PADRÃO:
-    1.000 gramas = 1 kg
+    O cálculo é feito pelo Supabase Edge Function.
+
+    ORIGEM:
+    32480-001
+
+    PESO:
+    1 kg
 
     DIMENSÕES:
-    30 cm comprimento
-    20 cm largura
-    15 cm altura
+    30 × 20 × 15 cm
 
-    IMPORTANTE:
-    A API oficial dos Correios precisa de
-    credenciais/token.
-
-    Quando configurarmos a API, coloque
-    o endereço da função do Supabase aqui.
-
-    Exemplo:
-
-    const FRETE_API_URL =
-    "https://SEU-PROJETO.supabase.co/functions/v1/calcular-frete";
-
+    O token do Melhor Envio NÃO fica neste HTML.
 */
 
 </style>
@@ -1240,6 +1232,10 @@ onclick="fecharCarrinhoFora(event)">
                     Peso considerado:
                     <strong>1 kg</strong>
 
+                    <br>
+
+                    Envio calculado pelo Melhor Envio.
+
                 </div>
 
 
@@ -1440,34 +1436,33 @@ const LARGURA_CM = 20;
 const ALTURA_CM = 15;
 
 
-/*
-    CEP DE ORIGEM
-
-    IMPORTANTE:
-
-    COLOQUE AQUI O CEP DE ONDE
-    VOCÊ VAI ENVIAR AS ENCOMENDAS.
-
-    Exemplo:
-
-    const CEP_ORIGEM = "35460000";
-
-*/
-
-const CEP_ORIGEM = "";
-
+/* =========================
+   CONFIGURAÇÃO DO FRETE
+========================= */
 
 /*
-    ENDPOINT DO FRETE
+    CEP DE ORIGEM:
 
-    Deixaremos vazio até criarmos
-    a função segura no Supabase.
+    32480-001
 
-    NÃO coloque o token dos Correios
-    diretamente neste HTML.
+    Este é o CEP usado pela função
+    do Supabase para consultar o
+    Melhor Envio.
 */
 
-const FRETE_API_URL = "";
+const CEP_ORIGEM =
+"32480001";
+
+
+/*
+    EDGE FUNCTION DO SUPABASE
+
+    Função:
+    rapid-processor
+*/
+
+const FRETE_API_URL =
+"https://xlqgxzgblawjjabyraki.supabase.co/functions/v1/rapid-processor";
 
 
 /* =========================
@@ -1492,6 +1487,10 @@ let freteAtual = 0;
 let cepAtual = "";
 
 
+/* =========================
+   SALVAR CARRINHO
+========================= */
+
 function salvarCarrinho() {
 
     localStorage.setItem(
@@ -1501,6 +1500,10 @@ function salvarCarrinho() {
 
 }
 
+
+/* =========================
+   ADICIONAR AO CARRINHO
+========================= */
 
 function adicionarCarrinho(
     nome,
@@ -1534,6 +1537,46 @@ function adicionarCarrinho(
             linkPagamento: linkPagamento
 
         });
+
+    }
+
+
+    /*
+        Quando um produto é alterado,
+        o frete anterior deixa de ser
+        válido e precisa ser recalculado.
+    */
+
+    freteAtual = 0;
+
+    cepAtual = "";
+
+
+    const freightValue =
+    document.getElementById(
+        "freightValue"
+    );
+
+    if (freightValue) {
+
+        freightValue.style.display =
+        "none";
+
+    }
+
+
+    const freightResult =
+    document.getElementById(
+        "freightResult"
+    );
+
+    if (freightResult) {
+
+        freightResult.className =
+        "freight-result";
+
+        freightResult.innerHTML =
+        "Informe seu CEP para calcular o frete.";
 
     }
 
@@ -1722,8 +1765,8 @@ function alterarQuantidade(
 
 
     /*
-        Se o carrinho mudou,
-        recalcularemos o frete.
+        O carrinho mudou.
+        O frete precisa ser recalculado.
     */
 
     freteAtual = 0;
@@ -1734,6 +1777,12 @@ function alterarQuantidade(
     document.getElementById(
         "freightValue"
     ).style.display = "none";
+
+
+    document.getElementById(
+        "freightResult"
+    ).className =
+    "freight-result";
 
 
     document.getElementById(
@@ -1766,6 +1815,12 @@ function removerProduto(index) {
     document.getElementById(
         "freightValue"
     ).style.display = "none";
+
+
+    document.getElementById(
+        "freightResult"
+    ).className =
+    "freight-result";
 
 
     document.getElementById(
@@ -1829,7 +1884,7 @@ function fecharCarrinhoFora(event) {
 
 function formatarMoeda(valor) {
 
-    return valor.toLocaleString(
+    return Number(valor).toLocaleString(
         "pt-BR",
         {
             style: "currency",
@@ -1848,6 +1903,10 @@ function formatarCEP(input) {
 
     let valor =
     input.value.replace(/\D/g, "");
+
+
+    valor =
+    valor.substring(0,8);
 
 
     if (valor.length > 5) {
@@ -1882,22 +1941,36 @@ function limparCEP(cep) {
 async function calcularFrete() {
 
     const input =
-    document.getElementById("cepInput");
+    document.getElementById(
+        "cepInput"
+    );
 
 
     const resultado =
-    document.getElementById("freightResult");
+    document.getElementById(
+        "freightResult"
+    );
 
 
     const valorFrete =
-    document.getElementById("freightValue");
+    document.getElementById(
+        "freightValue"
+    );
 
 
     const cep =
     limparCEP(input.value);
 
 
+    /* =========================
+       VALIDAR CEP
+    ========================= */
+
     if (cep.length !== 8) {
+
+        freteAtual = 0;
+
+        cepAtual = "";
 
         resultado.className =
         "freight-result error";
@@ -1908,12 +1981,22 @@ async function calcularFrete() {
         valorFrete.style.display =
         "none";
 
+        atualizarCarrinho();
+
         return;
 
     }
 
 
+    /* =========================
+       VALIDAR CARRINHO
+    ========================= */
+
     if (carrinho.length === 0) {
+
+        freteAtual = 0;
+
+        cepAtual = "";
 
         resultado.className =
         "freight-result error";
@@ -1921,62 +2004,26 @@ async function calcularFrete() {
         resultado.innerHTML =
         "❌ Adicione um produto ao carrinho.";
 
-        return;
-
-    }
-
-
-    /*
-        Ainda não existe endpoint configurado.
-
-        Isso evita apresentar um preço
-        falso de Correios ao cliente.
-    */
-
-    if (!FRETE_API_URL) {
-
-        resultado.className =
-        "freight-result";
-
-        resultado.innerHTML = `
-
-            <strong>
-                📦 CEP recebido: ${cep.substring(0,5)}-${cep.substring(5)}
-            </strong>
-
-            <br><br>
-
-            O cálculo oficial dos Correios
-            será conectado nesta etapa.
-
-            <br><br>
-
-            Peso:
-            <strong>1 kg</strong>
-
-            <br>
-
-            Embalagem:
-            <strong>
-                30 × 20 × 15 cm
-            </strong>
-
-        `;
-
         valorFrete.style.display =
         "none";
 
-        /*
-            Guardamos o CEP para usar
-            quando a API for conectada.
-        */
-
-        cepAtual = cep;
+        atualizarCarrinho();
 
         return;
 
     }
 
+
+    /* =========================
+       LOADING
+    ========================= */
+
+    freteAtual = 0;
+
+    cepAtual = "";
+
+    valorFrete.style.display =
+    "none";
 
     resultado.className =
     "freight-result freight-loading";
@@ -1985,7 +2032,18 @@ async function calcularFrete() {
     "⏳ Calculando frete...";
 
 
+    atualizarCarrinho();
+
+
     try {
+
+        /*
+            Chamamos a Edge Function
+            do Supabase.
+
+            O token do Melhor Envio
+            permanece protegido no servidor.
+        */
 
         const resposta =
         await fetch(
@@ -2003,23 +2061,8 @@ async function calcularFrete() {
 
                 body: JSON.stringify({
 
-                    cep_origem:
-                    CEP_ORIGEM,
-
                     cep_destino:
-                    cep,
-
-                    peso:
-                    PESO_PADRAO_GRAMAS,
-
-                    comprimento:
-                    COMPRIMENTO_CM,
-
-                    largura:
-                    LARGURA_CM,
-
-                    altura:
-                    ALTURA_CM
+                    cep
 
                 })
 
@@ -2027,39 +2070,77 @@ async function calcularFrete() {
         );
 
 
-        const dados =
-        await resposta.json();
+        let dados = {};
 
+        try {
+
+            dados =
+            await resposta.json();
+
+        } catch (erroJSON) {
+
+            dados = {};
+
+        }
+
+
+        /* =========================
+           ERRO DA API
+        ========================= */
 
         if (!resposta.ok) {
 
+            console.error(
+                "Resposta do frete:",
+                dados
+            );
+
+            const mensagem =
+            dados.erro ||
+            dados.message ||
+            "Não foi possível calcular o frete.";
+
             throw new Error(
-                dados.message ||
-                "Erro no cálculo do frete."
+                mensagem
             );
 
         }
 
 
-        /*
-            Esperamos que a função
-            retorne:
+        /* =========================
+           VALIDAR VALOR
+        ========================= */
 
-            {
-                frete: 25.90,
-                servico: "PAC",
-                prazo: 5
-            }
-        */
-
-
-        freteAtual =
+        const valor =
         Number(dados.frete);
 
+
+        if (
+            !Number.isFinite(valor) ||
+            valor <= 0
+        ) {
+
+            throw new Error(
+                "O Melhor Envio não retornou um valor de frete válido."
+            );
+
+        }
+
+
+        /* =========================
+           SALVAR FRETE
+        ========================= */
+
+        freteAtual =
+        valor;
 
         cepAtual =
         cep;
 
+
+        /* =========================
+           MOSTRAR RESULTADO
+        ========================= */
 
         resultado.className =
         "freight-result success";
@@ -2068,7 +2149,7 @@ async function calcularFrete() {
         resultado.innerHTML = `
 
             <strong>
-                🚚 ${dados.servico || "Correios"}
+                🚚 ${dados.servico || "Frete"}
             </strong>
 
             ${
@@ -2096,20 +2177,32 @@ async function calcularFrete() {
     } catch (erro) {
 
         console.error(
-            "Erro no frete:",
+            "Erro no cálculo do frete:",
             erro
         );
+
+
+        freteAtual = 0;
+
+        cepAtual = "";
 
 
         resultado.className =
         "freight-result error";
 
 
-        resultado.innerHTML =
-        "❌ Não foi possível calcular o frete. Tente novamente.";
+        resultado.innerHTML = `
+            ❌ Não foi possível calcular o frete.
+            <br>
+            Verifique o CEP e tente novamente.
+        `;
+
 
         valorFrete.style.display =
         "none";
+
+
+        atualizarCarrinho();
 
     }
 
@@ -2176,10 +2269,15 @@ function abrirFinalizacao() {
 
 
     /*
-        Exige CEP/frete antes do pagamento.
+        Só permite continuar
+        depois de um frete calculado.
     */
 
-    if (!cepAtual) {
+    if (
+        !cepAtual ||
+        !Number.isFinite(freteAtual) ||
+        freteAtual <= 0
+    ) {
 
         alert(
             "📍 Informe seu CEP e calcule o frete antes de continuar."
@@ -2319,7 +2417,11 @@ async function pagarPagBank() {
     }
 
 
-    if (!cepAtual) {
+    if (
+        !cepAtual ||
+        !Number.isFinite(freteAtual) ||
+        freteAtual <= 0
+    ) {
 
         alert(
             "Informe o CEP e calcule o frete."
@@ -2390,19 +2492,6 @@ async function pagarPagBank() {
     };
 
 
-    /*
-        OBSERVAÇÃO:
-
-        Se a tabela pedidos ainda não possuir
-        as colunas "cep" e "frete",
-        NÃO enviamos esses campos ainda,
-        para evitar erro no Supabase.
-
-        Vamos adicionar essas colunas
-        quando configurarmos o banco.
-    */
-
-
     try {
 
         const { error } =
@@ -2435,12 +2524,12 @@ async function pagarPagBank() {
 
 
         /*
-            O pedido fica como PENDENTE.
+            O pedido é registrado no Supabase
+            como PENDENTE.
 
-            Depois o cliente vai para
-            o PagBank.
+            Depois o cliente é encaminhado
+            para o PagBank.
         */
-
 
         window.location.href =
         PAGBANK_LINK;
