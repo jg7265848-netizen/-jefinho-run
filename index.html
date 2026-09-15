@@ -9,11 +9,7 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- SDK do Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- SDK do Mercado Pago para os Bricks -->
-<script src="https://sdk.mercadopago.com/js/v2"></script>
 
 <style>
 
@@ -33,9 +29,7 @@ body {
     color: #111;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header {
     position: sticky;
@@ -88,11 +82,6 @@ nav a:hover {
     cursor: pointer;
     font-size: 13px;
     font-weight: 800;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-}
-
-.cart-button i {
-    margin-right: 5px;
 }
 
 .cart-count {
@@ -108,9 +97,7 @@ nav a:hover {
     font-size: 11px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
     min-height: 650px;
@@ -165,16 +152,9 @@ nav a:hover {
     border-radius: 50px;
     font-size: 13px;
     font-weight: 900;
-    transition: 0.25s;
 }
 
-.hero-btn:hover {
-    transform: translateY(-3px);
-}
-
-/* =========================
-   PRODUTOS
-========================= */
+/* PRODUTOS */
 
 .container {
     max-width: 1200px;
@@ -218,12 +198,6 @@ nav a:hover {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 10px 35px rgba(0,0,0,0.07);
-    transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.product-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
 }
 
 .product-image {
@@ -247,7 +221,6 @@ nav a:hover {
     border-radius: 30px;
     font-size: 10px;
     font-weight: 800;
-    letter-spacing: 1px;
 }
 
 .product-info {
@@ -280,7 +253,6 @@ nav a:hover {
     font-size: 12px;
     font-weight: 900;
     cursor: pointer;
-    transition: 0.25s;
 }
 
 .btn-black {
@@ -289,14 +261,14 @@ nav a:hover {
     border: 1px solid #111;
 }
 
-.btn-black:hover {
-    background: #333;
-    transform: translateY(-2px);
+.btn-disabled {
+    background: #ddd;
+    color: #888;
+    border: none;
+    cursor: not-allowed;
 }
 
-/* =========================
-   BENEFÍCIOS
-========================= */
+/* BENEFÍCIOS */
 
 .benefits {
     background: #111;
@@ -311,10 +283,6 @@ nav a:hover {
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 40px;
     text-align: center;
-}
-
-.benefit {
-    padding: 10px;
 }
 
 .benefit i {
@@ -341,9 +309,7 @@ nav a:hover {
     line-height: 1.6;
 }
 
-/* =========================
-   WHATSAPP FLOAT
-========================= */
+/* WHATSAPP */
 
 .whatsapp-float {
     position: fixed;
@@ -360,17 +326,9 @@ nav a:hover {
     text-decoration: none;
     font-size: 25px;
     z-index: 2000;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    transition: 0.25s;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.08);
-}
-
-/* =========================
-   CARRINHO
-========================= */
+/* CARRINHO */
 
 .cart-overlay {
     position: fixed;
@@ -394,7 +352,6 @@ nav a:hover {
     background: #fff;
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 40px rgba(0,0,0,0.18);
 }
 
 .cart-header {
@@ -403,11 +360,6 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.cart-header h2 {
-    font-size: 21px;
-    font-weight: 900;
 }
 
 .close-cart {
@@ -474,7 +426,6 @@ nav a:hover {
     background: #f8f8f8;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 17px;
 }
 
 .remove-item {
@@ -489,7 +440,6 @@ nav a:hover {
 .cart-footer {
     padding: 22px;
     border-top: 1px solid #eee;
-    background: #fff;
 }
 
 .cart-total {
@@ -512,9 +462,7 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* =========================
-   CHECKOUT MERCADO PAGO BRICKS
-========================= */
+/* CHECKOUT */
 
 .checkout-overlay {
     position: fixed;
@@ -533,29 +481,52 @@ nav a:hover {
 
 .checkout-box {
     width: 100%;
-    max-width: 520px;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-width: 500px;
     background: white;
-    padding: 25px;
+    padding: 28px;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    text-align: center;
 }
 
 .checkout-box h2 {
-    font-size: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .checkout-box p {
     color: #777;
     font-size: 13px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-summary {
+    background: #f5f5f5;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.payment-summary div {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.pagbank-btn {
+    width: 100%;
+    padding: 17px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 900;
+    cursor: pointer;
 }
 
 .cancel-btn {
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     margin-top: 12px;
     border: 1px solid #ddd;
     background: white;
@@ -564,9 +535,7 @@ nav a:hover {
     font-weight: 700;
 }
 
-/* =========================
-   MENSAGEM DE PEDIDO
-========================= */
+/* MENSAGEM */
 
 .order-message-overlay {
     position: fixed;
@@ -590,7 +559,6 @@ nav a:hover {
     border-radius: 24px;
     padding: 32px 25px;
     text-align: center;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.35);
 }
 
 .order-icon {
@@ -604,14 +572,6 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     font-size: 30px;
-}
-
-.loading-icon {
-    animation: girar 1s linear infinite;
-}
-
-@keyframes girar {
-    to { transform: rotate(360deg); }
 }
 
 .order-message-box h2 {
@@ -641,10 +601,6 @@ nav a:hover {
     font-size: 13px;
 }
 
-.order-details strong {
-    font-weight: 900;
-}
-
 .order-whatsapp-btn {
     width: 100%;
     padding: 15px;
@@ -658,10 +614,6 @@ nav a:hover {
     margin-bottom: 8px;
 }
 
-.order-whatsapp-btn i {
-    margin-right: 7px;
-}
-
 .order-close-btn {
     width: 100%;
     padding: 13px;
@@ -673,9 +625,7 @@ nav a:hover {
     font-weight: 700;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
     background: #080808;
@@ -695,28 +645,66 @@ footer p {
     font-size: 11px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
+
     header {
         padding: 14px 17px;
         flex-wrap: wrap;
         gap: 12px;
     }
-    .logo { font-size: 20px; }
-    nav { width: 100%; justify-content: space-between; gap: 8px; }
-    nav a { font-size: 11px; }
-    .cart-button { padding: 10px 13px; font-size: 11px; }
-    .hero { min-height: 560px; }
-    .hero h1 { font-size: 42px; }
-    .hero p { font-size: 14px; }
-    .container { padding: 70px 18px; }
-    .section-header h2 { font-size: 29px; }
-    .product-grid { grid-template-columns: 1fr; }
-    .product-card img { height: 280px; }
-    .cart { width: 100%; }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .cart-button {
+        padding: 10px 13px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 560px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 70px 18px;
+    }
+
+    .section-header h2 {
+        font-size: 29px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card img {
+        height: 280px;
+    }
+
+    .cart {
+        width: 100%;
+    }
 }
 
 </style>
@@ -725,441 +713,1119 @@ footer p {
 <body>
 
 <header>
-    <div class="logo">JEFINHO <span>RUN</span></div>
+
+    <div class="logo">
+        JEFINHO <span>RUN</span>
+    </div>
+
     <nav>
+
         <a href="#">Início</a>
-        <a href="#produtos">Produtos</a>
-        <a href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run." target="_blank">Contato</a>
+
+        <a href="#produtos">
+            Produtos
+        </a>
+
+        <a href="https://wa.me/5531995498420?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+           target="_blank">
+            Contato
+        </a>
+
         <button class="cart-button" onclick="abrirCarrinho()">
+
             <i class="fa-solid fa-cart-shopping"></i>
+
             <span>Carrinho</span>
-            <span class="cart-count" id="cartCount">0</span>
+
+            <span class="cart-count" id="cartCount">
+                0
+            </span>
+
         </button>
+
     </nav>
+
 </header>
 
+
 <section class="hero">
-    <div class="hero-small">JEFINHO RUN</div>
-    <h1>CORRA.<br>SUPERE.<br>EVOLUA.</h1>
-    <p>Performance, estilo e conforto para acompanhar cada quilômetro da sua jornada.</p>
+
+    <div class="hero-small">
+        JEFINHO RUN
+    </div>
+
+    <h1>
+        CORRA.<br>
+        SUPERE.<br>
+        EVOLUA.
+    </h1>
+
+    <p>
+        Performance, estilo e conforto para acompanhar cada quilômetro da sua jornada.
+    </p>
+
     <a href="#produtos" class="hero-btn">
-        VER PRODUTOS <i class="fa-solid fa-arrow-down"></i>
+        VER PRODUTOS
+        <i class="fa-solid fa-arrow-down"></i>
     </a>
+
 </section>
+
 
 <section class="container" id="produtos">
+
     <div class="section-header">
-        <span>JEFINHO RUN</span>
-        <h2>Produtos em destaque</h2>
-        <p>Equipamentos para quem não para de evoluir.</p>
+
+        <span>
+            JEFINHO RUN
+        </span>
+
+        <h2>
+            Produtos em destaque
+        </h2>
+
+        <p>
+            Equipamentos para quem não para de evoluir.
+        </p>
+
     </div>
+
 
     <div class="product-grid">
-        <div class="product-card">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85" alt="Camisa Dry-Fit Performance">
-                <div class="product-tag">PERFORMANCE</div>
-            </div>
-            <div class="product-info">
-                <div class="product-category">Corrida</div>
-                <h3>Camisa Dry-Fit Performance</h3>
-                <div class="price">R$ 99,90</div>
-                <button class="btn-buy btn-black" onclick="adicionarCarrinho('Camisa Dry-Fit Performance', 99.90, 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85')">
-                    <i class="fa-solid fa-cart-plus"></i> ADICIONAR AO CARRINHO
-                </button>
-            </div>
-        </div>
+
+
+        <!-- CAMISA -->
 
         <div class="product-card">
+
             <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85" alt="Tênis de Corrida Pro">
-                <div class="product-tag">RUNNING</div>
+
+                <img
+                src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85"
+                alt="Camisa Dry-Fit Performance">
+
+                <div class="product-tag">
+                    PERFORMANCE
+                </div>
+
             </div>
+
             <div class="product-info">
-                <div class="product-category">Performance</div>
-                <h3>Tênis de Corrida Pro</h3>
-                <div class="price">R$ 349,90</div>
-                <button class="btn-buy btn-black" onclick="adicionarCarrinho('Tênis de Corrida Pro', 349.90, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85')">
-                    <i class="fa-solid fa-cart-plus"></i> ADICIONAR AO CARRINHO
+
+                <div class="product-category">
+                    Corrida
+                </div>
+
+                <h3>
+                    Camisa Dry-Fit Performance
+                </h3>
+
+                <div class="price">
+                    R$ 99,90
+                </div>
+
+                <button
+                class="btn-buy btn-black"
+                onclick="adicionarCarrinho(
+                    'Camisa Dry-Fit Performance',
+                    99.90,
+                    'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=85',
+                    'https://pag.ae/829SW6Lm1'
+                )">
+
+                    <i class="fa-solid fa-cart-plus"></i>
+                    ADICIONAR AO CARRINHO
+
                 </button>
+
             </div>
+
         </div>
 
+
+        <!-- TENIS -->
+
         <div class="product-card">
+
             <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85" alt="Garrafa Térmica Esportiva">
-                <div class="product-tag">ACESSÓRIO</div>
+
+                <img
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+                alt="Tênis de Corrida Pro">
+
+                <div class="product-tag">
+                    RUNNING
+                </div>
+
             </div>
+
             <div class="product-info">
-                <div class="product-category">Hidratação</div>
-                <h3>Garrafa Térmica Esportiva</h3>
-                <div class="price">R$ 59,90</div>
-                <button class="btn-buy btn-black" onclick="adicionarCarrinho('Garrafa Térmica Esportiva', 59.90, 'https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85')">
-                    <i class="fa-solid fa-cart-plus"></i> ADICIONAR AO CARRINHO
+
+                <div class="product-category">
+                    Performance
+                </div>
+
+                <h3>
+                    Tênis de Corrida Pro
+                </h3>
+
+                <div class="price">
+                    R$ 349,90
+                </div>
+
+                <button
+                class="btn-buy btn-black"
+                onclick="adicionarCarrinho(
+                    'Tênis de Corrida Pro',
+                    349.90,
+                    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85',
+                    'https://pag.ae/829SW6Lm1'
+                )">
+
+                    <i class="fa-solid fa-cart-plus"></i>
+                    ADICIONAR AO CARRINHO
+
                 </button>
+
             </div>
+
         </div>
+
+
+        <!-- GARRAFA -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1510066136130-5777fdd874e3?auto=format&fit=crop&w=700&q=85"
+                alt="Garrafa Térmica Esportiva">
+
+                <div class="product-tag">
+                    ACESSÓRIO
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Hidratação
+                </div>
+
+                <h3>
+                    Garrafa Térmica Esportiva
+                </h3>
+
+                <div class="price">
+                    R$ 59,90
+                </div>
+
+                <button
+                class="btn-buy btn-disabled"
+                disabled>
+
+                    PAGAMENTO EM BREVE
+
+                </button>
+
+            </div>
+
+        </div>
+
+
     </div>
+
 </section>
+
 
 <section class="benefits">
+
     <div class="benefit-grid">
+
         <div class="benefit">
+
             <i class="fa-solid fa-bolt"></i>
-            <h3>Performance</h3>
-            <p>Produtos escolhidos para acompanhar seus treinos e sua evolução.</p>
+
+            <h3>
+                Performance
+            </h3>
+
+            <p>
+                Produtos escolhidos para acompanhar seus treinos e sua evolução.
+            </p>
+
         </div>
+
+
         <div class="benefit">
+
             <i class="fa-solid fa-shield-halved"></i>
-            <h3>Compra segura</h3>
-            <p>Pagamento processado com segurança pelo Mercado Pago.</p>
+
+            <h3>
+                Pagamento PagBank
+            </h3>
+
+            <p>
+                Pagamento realizado através do ambiente seguro do PagBank.
+            </p>
+
         </div>
+
+
         <div class="benefit">
+
             <i class="fa-solid fa-headset"></i>
-            <h3>Atendimento direto</h3>
-            <p>Precisou de ajuda? Fale diretamente com a Jefinho Run.</p>
+
+            <h3>
+                Atendimento direto
+            </h3>
+
+            <p>
+                Precisou de ajuda? Fale diretamente com a Jefinho Run.
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
-<a href="https://wa.me/5531995498420?text=Olá!%20Vim%20pelo%20site%20da%20Jefinho%20Run." class="whatsapp-float" target="_blank">
+
+<a
+href="https://wa.me/5531995498420?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Jefinho%20Run."
+class="whatsapp-float"
+target="_blank">
+
     <i class="fa-brands fa-whatsapp"></i>
+
 </a>
 
+
 <!-- CARRINHO -->
-<div class="cart-overlay" id="cartOverlay" onclick="fecharCarrinhoFora(event)">
+
+<div
+class="cart-overlay"
+id="cartOverlay"
+onclick="fecharCarrinhoFora(event)">
+
     <div class="cart">
+
         <div class="cart-header">
-            <h2><i class="fa-solid fa-bag-shopping"></i> Meu Carrinho</h2>
-            <button class="close-cart" onclick="fecharCarrinho()">×</button>
-        </div>
-        <div class="cart-items" id="cartItems"></div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total</span>
-                <span id="cartTotal">R$ 0,00</span>
-            </div>
-            <button class="checkout-btn" onclick="abrirFinalizacao()">
-                PAGAR COM MERCADO PAGO <i class="fa-solid fa-arrow-right"></i>
+
+            <h2>
+                <i class="fa-solid fa-bag-shopping"></i>
+                Meu Carrinho
+            </h2>
+
+            <button
+            class="close-cart"
+            onclick="fecharCarrinho()">
+
+                ×
+
             </button>
+
         </div>
+
+
+        <div
+        class="cart-items"
+        id="cartItems">
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="cartTotal">
+                    R$ 0,00
+                </span>
+
+            </div>
+
+
+            <button
+            class="checkout-btn"
+            onclick="abrirFinalizacao()">
+
+                PAGAR COM PAGBANK
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
     </div>
+
 </div>
 
-<!-- CHECKOUT MERCADO PAGO BRICKS -->
-<div class="checkout-overlay" id="checkoutOverlay">
+
+<!-- CHECKOUT -->
+
+<div
+class="checkout-overlay"
+id="checkoutOverlay">
+
     <div class="checkout-box">
-        <h2>Pagamento Seguro</h2>
-        <p>Escolha a forma de pagamento abaixo:</p>
-        
-        <!-- Onde o formulário do Mercado Pago vai aparecer -->
-        <div id="paymentBrick_container"></div>
 
-        <button class="cancel-btn" onclick="fecharFinalizacao()">CANCELAR</button>
-    </div>
-</div>
+        <h2>
+            Finalizar Pedido
+        </h2>
 
-<!-- MENSAGEM DE REGISTRO / CARREGANDO -->
-<div class="order-message-overlay" id="orderLoading">
-    <div class="order-message-box">
-        <div class="order-icon"><i class="fa-solid fa-spinner loading-icon"></i></div>
-        <h2>Processando pagamento</h2>
-        <p>Aguarde enquanto confirmamos sua transação e registramos seu pedido.<br>Só mais um instante...</p>
-    </div>
-</div>
+        <p>
+            Confira seu pedido antes de continuar para o PagBank.
+        </p>
 
-<!-- PEDIDO APROVADO COM SUCESSO -->
-<div class="order-message-overlay" id="orderSuccess">
-    <div class="order-message-box">
-        <div class="order-icon"><i class="fa-solid fa-check"></i></div>
-        <h2>Pagamento Aprovado!</h2>
-        <p>Seu pedido foi recebido com sucesso pela <strong>JEFINHO RUN</strong>.</p>
-        <div class="order-details">
-            <div><span>Pedido</span><strong id="successOrderNumber">JF-000000</strong></div>
-            <div><span>Cliente</span><strong id="successClientName">Cliente</strong></div>
-            <div><span>Total</span><strong id="successOrderTotal">R$ 0,00</strong></div>
+
+        <div
+        class="payment-summary"
+        id="paymentSummary">
         </div>
-        <p>Se quiser, você pode falar com a gente no WhatsApp para acompanhar o envio.</p>
-        <button class="order-whatsapp-btn" onclick="irParaWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> ACOMPANHAR NO WHATSAPP
+
+
+        <button
+        class="pagbank-btn"
+        onclick="pagarPagBank()">
+
+            <i class="fa-solid fa-lock"></i>
+            CONTINUAR PARA O PAGBANK
+
         </button>
-        <button class="order-close-btn" onclick="fecharMensagemSucesso()">FECHAR</button>
+
+
+        <button
+        class="cancel-btn"
+        onclick="fecharFinalizacao()">
+
+            CANCELAR
+
+        </button>
+
     </div>
+
 </div>
+
+
+<!-- SUCESSO DO REGISTRO -->
+
+<div
+class="order-message-overlay"
+id="orderSuccess">
+
+    <div class="order-message-box">
+
+        <div class="order-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+        <h2>
+            Pedido registrado!
+        </h2>
+
+        <p>
+            Seu pedido foi registrado e você será encaminhado para o PagBank.
+        </p>
+
+
+        <div class="order-details">
+
+            <div>
+
+                <span>
+                    Pedido
+                </span>
+
+                <strong id="successOrderNumber">
+                    JF-000000
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="successOrderTotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+        class="order-close-btn"
+        onclick="fecharMensagemSucesso()">
+
+            CONTINUAR
+
+        </button>
+
+    </div>
+
+</div>
+
 
 <footer>
-    <div class="footer-logo">JEFINHO RUN</div>
-    <p>© 2026 Jefinho Run. Todos os direitos reservados.</p>
+
+    <div class="footer-logo">
+        JEFINHO RUN
+    </div>
+
+    <p>
+        © 2026 Jefinho Run. Todos os direitos reservados.
+    </p>
+
 </footer>
 
+
 <script>
-const SUPABASE_URL = "https://xlqgxzgblawjjabyraki.supabase.co";
-const SUPABASE_KEY = "sb_publishable_WUocoVHVarxg6EPmLRtD0g_egOqFNog";
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const WHATSAPP_LOJA = "5531995498420";
+/* =========================
+   SUPABASE
+========================= */
 
-let carrinho = JSON.parse(localStorage.getItem("jefinhoCarrinho")) || [];
-let mensagemWhatsAppFinal = "";
-let paymentBrickController = null;
+const SUPABASE_URL =
+"https://xlqgxzgblawjjabyraki.supabase.co";
 
-// Inicializa o SDK do Mercado Pago
-// Substitua 'SUA_PUBLIC_KEY' pela sua Chave Pública real obtida no painel de desenvolvedor do Mercado Pago
-const mp = new MercadoPago('SUA_PUBLIC_KEY', {
-    locale: 'pt-BR'
-});
+const SUPABASE_KEY =
+"sb_publishable_WUocoVHVarxg6EPmLRtD0g_egOqFNog";
+
+const supabaseClient =
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+/* =========================
+   PAGBANK
+========================= */
+
+const PAGBANK_LINK =
+"https://pag.ae/829SW6Lm1";
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+const WHATSAPP_LOJA =
+"5531995498420";
+
+
+/* =========================
+   CARRINHO
+========================= */
+
+let carrinho =
+JSON.parse(
+    localStorage.getItem("jefinhoCarrinho")
+) || [];
+
+
+let numeroPedidoAtual = "";
+
+
 
 function salvarCarrinho() {
-    localStorage.setItem("jefinhoCarrinho", JSON.stringify(carrinho));
+
+    localStorage.setItem(
+        "jefinhoCarrinho",
+        JSON.stringify(carrinho)
+    );
+
 }
 
-function adicionarCarrinho(nome, preco, imagem) {
-    const existente = carrinho.find(item => item.nome === nome);
+
+
+function adicionarCarrinho(
+    nome,
+    preco,
+    imagem,
+    linkPagamento
+) {
+
+    const existente =
+    carrinho.find(
+        item => item.nome === nome
+    );
+
+
     if (existente) {
+
         existente.quantidade++;
+
     } else {
-        carrinho.push({ nome: nome, preco: preco, imagem: imagem, quantidade: 1 });
+
+        carrinho.push({
+
+            nome: nome,
+
+            preco: preco,
+
+            imagem: imagem,
+
+            quantidade: 1,
+
+            linkPagamento: linkPagamento
+
+        });
+
     }
+
+
     salvarCarrinho();
+
     atualizarCarrinho();
+
     abrirCarrinho();
+
 }
+
+
 
 function atualizarCarrinho() {
-    const container = document.getElementById("cartItems");
-    const contador = document.getElementById("cartCount");
-    const totalElement = document.getElementById("cartTotal");
+
+    const container =
+    document.getElementById("cartItems");
+
+    const contador =
+    document.getElementById("cartCount");
+
+    const totalElement =
+    document.getElementById("cartTotal");
+
 
     let quantidadeTotal = 0;
+
     let total = 0;
+
 
     carrinho.forEach(item => {
-        quantidadeTotal += item.quantidade;
-        total += item.preco * item.quantidade;
+
+        quantidadeTotal +=
+        item.quantidade;
+
+        total +=
+        item.preco *
+        item.quantidade;
+
     });
 
-    contador.innerText = quantidadeTotal;
-    totalElement.innerText = formatarMoeda(total);
+
+    contador.innerText =
+    quantidadeTotal;
+
+    totalElement.innerText =
+    formatarMoeda(total);
+
 
     if (carrinho.length === 0) {
+
         container.innerHTML = `
+
             <div class="empty-cart">
-                <i class="fa-solid fa-cart-shopping" style="font-size:40px;margin-bottom:15px;color:#ccc;"></i>
-                <p>Seu carrinho está vazio.</p>
+
+                <i
+                class="fa-solid fa-cart-shopping"
+                style="font-size:40px;margin-bottom:15px;color:#ccc;">
+                </i>
+
+                <p>
+                    Seu carrinho está vazio.
+                </p>
+
                 <br>
-                <p>Adicione produtos para começar.</p>
+
+                <p>
+                    Adicione produtos para começar.
+                </p>
+
             </div>
+
         `;
+
         return;
+
     }
+
 
     container.innerHTML = "";
-    carrinho.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.className = "cart-item";
+
+
+    carrinho.forEach(
+    (item, index) => {
+
+        const div =
+        document.createElement("div");
+
+        div.className =
+        "cart-item";
+
+
         div.innerHTML = `
-            <img src="${item.imagem}" alt="${item.nome}">
+
+            <img
+            src="${item.imagem}"
+            alt="${item.nome}">
+
             <div class="cart-item-info">
-                <h3>${item.nome}</h3>
-                <div class="cart-item-price">${formatarMoeda(item.preco)}</div>
-                <div class="quantity">
-                    <button onclick="alterarQuantidade(${index}, -1)">−</button>
-                    <strong>${item.quantidade}</strong>
-                    <button onclick="alterarQuantidade(${index}, 1)">+</button>
+
+                <h3>
+                    ${item.nome}
+                </h3>
+
+                <div class="cart-item-price">
+                    ${formatarMoeda(item.preco)}
                 </div>
-                <button class="remove-item" onclick="removerProduto(${index})">
-                    <i class="fa-solid fa-trash"></i> Remover
+
+                <div class="quantity">
+
+                    <button
+                    onclick="alterarQuantidade(${index}, -1)">
+                        −
+                    </button>
+
+                    <strong>
+                        ${item.quantidade}
+                    </strong>
+
+                    <button
+                    onclick="alterarQuantidade(${index}, 1)">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                class="remove-item"
+                onclick="removerProduto(${index})">
+
+                    <i class="fa-solid fa-trash"></i>
+                    Remover
+
                 </button>
+
             </div>
+
         `;
+
+
         container.appendChild(div);
+
     });
+
 }
 
-function alterarQuantidade(index, quantidade) {
-    carrinho[index].quantidade += quantidade;
-    if (carrinho[index].quantidade <= 0) {
+
+
+function alterarQuantidade(
+    index,
+    quantidade
+) {
+
+    carrinho[index].quantidade +=
+    quantidade;
+
+
+    if (
+        carrinho[index].quantidade <= 0
+    ) {
+
         carrinho.splice(index, 1);
+
     }
+
+
     salvarCarrinho();
+
     atualizarCarrinho();
+
 }
+
+
 
 function removerProduto(index) {
+
     carrinho.splice(index, 1);
+
     salvarCarrinho();
+
     atualizarCarrinho();
+
 }
+
+
 
 function abrirCarrinho() {
-    document.getElementById("cartOverlay").classList.add("active");
+
+    document
+    .getElementById("cartOverlay")
+    .classList
+    .add("active");
+
 }
+
+
 
 function fecharCarrinho() {
-    document.getElementById("cartOverlay").classList.remove("active");
+
+    document
+    .getElementById("cartOverlay")
+    .classList
+    .remove("active");
+
 }
+
+
 
 function fecharCarrinhoFora(event) {
-    if (event.target.id === "cartOverlay") {
+
+    if (
+        event.target.id ===
+        "cartOverlay"
+    ) {
+
         fecharCarrinho();
+
     }
+
 }
+
+
 
 function formatarMoeda(valor) {
-    return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style: "currency",
+            currency: "BRL"
+        }
+    );
+
 }
+
+
+
+/* =========================
+   PEDIDO
+========================= */
 
 function gerarNumeroPedido() {
-    const agora = new Date();
-    const numero = agora.getFullYear().toString() +
-        (agora.getMonth() + 1).toString().padStart(2, "0") +
-        agora.getDate().toString().padStart(2, "0") +
-        agora.getHours().toString().padStart(2, "0") +
-        agora.getMinutes().toString().padStart(2, "0") +
-        agora.getSeconds().toString().padStart(2, "0");
+
+    const agora =
+    new Date();
+
+
+    const numero =
+
+        agora.getFullYear().toString() +
+
+        (agora.getMonth() + 1)
+        .toString()
+        .padStart(2, "0") +
+
+        agora.getDate()
+        .toString()
+        .padStart(2, "0") +
+
+        agora.getHours()
+        .toString()
+        .padStart(2, "0") +
+
+        agora.getMinutes()
+        .toString()
+        .padStart(2, "0") +
+
+        agora.getSeconds()
+        .toString()
+        .padStart(2, "0");
+
+
     return "JF-" + numero;
+
 }
 
-function mostrarCarregando() {
-    document.getElementById("orderLoading").classList.add("active");
-}
 
-function esconderCarregando() {
-    document.getElementById("orderLoading").classList.remove("active");
-}
 
-function mostrarSucesso(numeroPedido, nome, total) {
-    document.getElementById("successOrderNumber").innerText = numeroPedido;
-    document.getElementById("successClientName").innerText = nome;
-    document.getElementById("successOrderTotal").innerText = formatarMoeda(total);
-    document.getElementById("orderSuccess").classList.add("active");
-}
+/* =========================
+   FINALIZAÇÃO
+========================= */
 
-function fecharMensagemSucesso() {
-    document.getElementById("orderSuccess").classList.remove("active");
-}
+function abrirFinalizacao() {
 
-function irParaWhatsApp() {
-    if (!mensagemWhatsAppFinal) return;
-    window.open("https://wa.me/" + WHATSAPP_LOJA + "?text=" + mensagemWhatsAppFinal, "_blank");
-}
+    if (
+        carrinho.length === 0
+    ) {
 
-async function abrirFinalizacao() {
-    if (carrinho.length === 0) {
-        alert("🛒 Seu carrinho está vazio.");
+        alert(
+            "🛒 Seu carrinho está vazio."
+        );
+
         return;
+
     }
+
 
     fecharCarrinho();
-    document.getElementById("checkoutOverlay").classList.add("active");
 
-    // Calcula o valor total do carrinho atual
+
     let total = 0;
-    carrinho.forEach(item => { total += item.preco * item.quantidade; });
 
-    // Renderiza o Checkout Brick do Mercado Pago
-    const bricksBuilder = mp.bricks();
-    
-    // Limpa caso já exista uma instância anterior
-    document.getElementById("paymentBrick_container").innerHTML = "";
 
-    try {
-        paymentBrickController = await bricksBuilder.create("payment", "paymentBrick_container", {
-            initialization: {
-                amount: total,
-            },
-            customization: {
-                paymentMethods: {
-                    creditCard: "all",
-                    bankTransfer: "all", // Inclui PIX
-                    ticket: "all",       // Inclui Boleto
-                },
-            },
-            callbacks: {
-                onReady: () => {},
-                onSubmit: async ({ selectedPaymentMethod, formData }) => {
-                    // Executado quando o usuário clica em pagar no componente do Mercado Pago
-                    processarPagamentoMercadoPago(formData);
-                },
-                onError: (error) => {
-                    console.error("Erro no Brick de Pagamento:", error);
-                },
-            },
-        });
-    } catch (e) {
-        console.error("Erro ao carregar o Brick:", e);
-    }
+    let html = "";
+
+
+    carrinho.forEach(item => {
+
+        const subtotal =
+        item.preco *
+        item.quantidade;
+
+
+        total += subtotal;
+
+
+        html += `
+
+            <div>
+
+                <span>
+                    ${item.nome} x${item.quantidade}
+                </span>
+
+                <strong>
+                    ${formatarMoeda(subtotal)}
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+        <div
+        style="
+        border-top:1px solid #ddd;
+        margin-top:10px;
+        padding-top:10px;
+        font-size:16px;
+        ">
+
+            <strong>
+                Total
+            </strong>
+
+            <strong>
+                ${formatarMoeda(total)}
+            </strong>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "paymentSummary"
+    ).innerHTML = html;
+
+
+    document.getElementById(
+        "checkoutOverlay"
+    ).classList.add("active");
+
 }
+
+
 
 function fecharFinalizacao() {
-    document.getElementById("checkoutOverlay").classList.remove("active");
-    if (paymentBrickController) {
-        paymentBrickController.unmount();
-    }
+
+    document.getElementById(
+        "checkoutOverlay"
+    ).classList.remove("active");
+
 }
 
-async function processarPagamentoMercadoPago(formData) {
-    fecharFinalizacao();
-    mostrarCarregando();
+
+
+/* =========================
+   PAGAR PAGBANK
+========================= */
+
+async function pagarPagBank() {
+
+    if (
+        carrinho.length === 0
+    ) {
+
+        alert(
+            "Seu carrinho está vazio."
+        );
+
+        return;
+
+    }
+
 
     let total = 0;
-    const produtos = carrinho.map(item => {
-        const subtotal = item.preco * item.quantidade;
+
+
+    const produtos =
+    carrinho.map(item => {
+
+        const subtotal =
+        item.preco *
+        item.quantidade;
+
+
         total += subtotal;
-        return item.nome + " x" + item.quantidade + " - " + formatarMoeda(subtotal);
+
+
+        return (
+            item.nome +
+            " x" +
+            item.quantidade +
+            " - " +
+            formatarMoeda(subtotal)
+        );
+
     }).join(" | ");
 
-    const numeroPedido = gerarNumeroPedido();
-    const nomeCliente = formData.payer?.first_name ? (formData.payer.first_name + " " + (formData.payer.last_name || '')) : "Cliente Online";
-    const whatsappCliente = formData.payer?.phone?.number || "Não informado";
+
+    numeroPedidoAtual =
+    gerarNumeroPedido();
+
 
     const pedido = {
-        numero_pedido: numeroPedido,
-        nome_cliente: nomeCliente,
-        whatsapp: whatsappCliente,
-        produtos: produtos,
-        valor_total: total,
-        status: "aprovado",
-        criado_em: new Date().toISOString()
+
+        numero_pedido:
+        numeroPedidoAtual,
+
+        nome_cliente:
+        "Cliente Online",
+
+        whatsapp:
+        "Não informado",
+
+        produtos:
+        produtos,
+
+        valor_total:
+        total,
+
+        status:
+        "pendente",
+
+        criado_em:
+        new Date().toISOString()
+
     };
 
+
     try {
-        // Salva o pedido no Supabase
-        const { error } = await supabaseClient.from("pedidos").insert([pedido]);
+
+        const { error } =
+        await supabaseClient
+        .from("pedidos")
+        .insert([pedido]);
+
 
         if (error) {
-            esconderCarregando();
-            alert("❌ Erro ao salvar o pedido no banco de dados: " + error.message);
+
+            console.error(
+                "Erro Supabase:",
+                error
+            );
+
+
+            alert(
+                "❌ Não foi possível registrar o pedido."
+            );
+
+
             return;
+
         }
 
-        // Monta a mensagem para o WhatsApp caso ele queira clicar depois
-        let mensagem = "Olá! Realizei o pagamento do pedido pelo site Jefinho Run.%0A%0A";
-        mensagem += "*Pedido:* " + numeroPedido + "%0A";
-        mensagem += "*Cliente:* " + encodeURIComponent(nomeCliente) + "%0A%0A";
-        mensagem += "*Produtos:*%0A";
-        carrinho.forEach(item => {
-            mensagem += "- " + encodeURIComponent(item.nome) + " x" + item.quantidade + "%0A";
-        });
-        mensagem += "%0A*Total Pago:* " + encodeURIComponent(formatarMoeda(total));
-        mensagemWhatsAppFinal = mensagem;
 
-        // Limpa carrinho
-        carrinho = [];
-        salvarCarrinho();
-        atualizarCarrinho();
+        /*
+        Pedido salvo como PENDENTE.
+        Agora o cliente vai para o PagBank.
+        */
 
-        esconderCarregando();
-        mostrarSucesso(numeroPedido, nomeCliente, total);
+
+        document.getElementById(
+            "checkoutOverlay"
+        ).classList.remove("active");
+
+
+        /*
+        Mantém o carrinho até o usuário
+        retornar do pagamento.
+        */
+
+
+        window.location.href =
+        PAGBANK_LINK;
+
 
     } catch (erro) {
-        esconderCarregando();
-        console.error("ERRO:", erro);
-        alert("❌ Ocorreu um erro ao processar o seu pedido.");
+
+        console.error(
+            "Erro:",
+            erro
+        );
+
+
+        alert(
+            "❌ Ocorreu um erro. Tente novamente."
+        );
+
     }
+
 }
 
+
+
+/* =========================
+   SUCESSO
+========================= */
+
+function fecharMensagemSucesso() {
+
+    document
+    .getElementById("orderSuccess")
+    .classList
+    .remove("active");
+
+}
+
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
 atualizarCarrinho();
+
 </script>
 
 </body>
